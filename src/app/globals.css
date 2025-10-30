@@ -2,7 +2,6 @@
 @import "tw-animate-css";
 @import "@daveyplate/better-auth-ui/css";
 
-@source "@daveyplate/better-auth-ui/dist/**/*.{js,ts,jsx,tsx,mdx}";
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -120,5 +119,17 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-allerta-stencil {
+    font-family: var(--font-allerta-stencil), sans-serif;
+  }
+  .font-inter-black {
+    font-family: var(--font-inter-black), sans-serif;
+  }
+  .font-russo-one {
+    font-family: var(--font-russo-one), sans-serif;
   }
 }

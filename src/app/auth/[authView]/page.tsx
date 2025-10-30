@@ -1,5 +1,8 @@
+"use client"
+
 import { AuthView } from "@daveyplate/better-auth-ui"
-import { authViewPaths } from "@daveyplate/better-auth-ui/server"
+import { use } from "react"
+import { usePathname } from "next/navigation"
 
 type AuthPageProps = {
     params: Promise<{
@@ -7,20 +10,33 @@ type AuthPageProps = {
     }>
 }
 
-export default async function AuthPage({ params }: AuthPageProps) {
-    const { authView } = await params
+export default function AuthPage({ params }: AuthPageProps) {
+    const { authView } = use(params)
+    const pathname = usePathname()
+
+    // URLパラメータをAuthViewのviewプロパティに変換
+    const viewMap: Record<string, string> = {
+        "sign-in": "SIGN_IN",
+        "sign-up": "SIGN_UP",
+        "sign-out": "SIGN_OUT",
+        "forgot-password": "FORGOT_PASSWORD",
+        "reset-password": "RESET_PASSWORD",
+        "magic-link": "MAGIC_LINK",
+        "logout": "SIGN_OUT",
+        "email-otp": "EMAIL_OTP",
+        "two-factor": "TWO_FACTOR",
+    }
+
+    const view = viewMap[authView] || authView.toUpperCase().replace(/-/g, "_")
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
             <div className="w-full max-w-md p-6">
-                <AuthView authView={authView} />
+                <AuthView 
+                    view={view as any}
+                    pathname={pathname}
+                />
             </div>
         </div>
     )
-}
-
-export async function generateStaticParams() {
-    return authViewPaths.map((authView) => ({
-        authView,
-    }))
 }

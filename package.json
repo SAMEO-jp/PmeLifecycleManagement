@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "auth:info": "npx @better-auth/cli@latest info --config ./src/core/better-auth/auth.ts",
+    "auth:generate": "npx @better-auth/cli@latest generate --config ./src/core/better-auth/auth.ts",
+    "auth:migrate": "npx @better-auth/cli@latest migrate --config ./src/core/better-auth/auth.ts"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -14,7 +17,7 @@
     ]
   },
   "dependencies": {
-    "@daveyplate/better-auth-ui": "^3.2.6",
+    "@daveyplate/better-auth-ui": "^3.2.7",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@daveyplate/better-auth-ui':
-        specifier: ^3.2.6
-        version: 3.2.6(4b94b26823677104d05113826a81985e)
+        specifier: ^3.2.7
+        version: 3.2.7(d98467ac9c4c3c76a77b8539229a5ab6)
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.65.0(react@19.2.0))
@@ -94,7 +94,7 @@ importers:
         version: 1.2.8(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       better-auth:
         specifier: ^1.3.33
-        version: 1.3.33(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 1.3.34(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -348,8 +348,8 @@ packages:
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
 
-  '@better-auth/core@1.3.33':
-    resolution: {integrity: sha512-QDJZwGbozYVwPIR+2Odrp+vhdSF+C4Eneh1vcoILbnQT6OdVT8egpMsa/ubisHgk7VY+P5idAE45sgdAvoG6Nw==}
+  '@better-auth/core@1.3.34':
+    resolution: {integrity: sha512-rt/Bgl0Xa8OQ2DUMKCZEJ8vL9kUw4NCJsBP9Sj9uRhbsK8NEMPiznUOFMkUY2FvrslvfKN7H/fivwyHz9c7HzQ==}
     peerDependencies:
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
@@ -358,8 +358,8 @@ packages:
       kysely: ^0.28.5
       nanostores: ^1.0.1
 
-  '@better-auth/telemetry@1.3.33':
-    resolution: {integrity: sha512-ayeMCH4Eo3/4La3qnoVtC5cen/I3jahUHPZmdZJWCr42oVU2045n+9HVJ62uD8Ag6+AjNxAK52uo8c0WLvhvow==}
+  '@better-auth/telemetry@1.3.34':
+    resolution: {integrity: sha512-aQZ3wN90YMqV49diWxAMe1k7s2qb55KCsedCZne5PlgCjU4s3YtnqyjC5FEpzw2KY8l8rvR7DMAsDl13NjObKA==}
 
   '@better-auth/utils@0.3.0':
     resolution: {integrity: sha512-W+Adw6ZA6mgvnSnhOki270rwJ42t4XzSK6YWGF//BbVXL6SwCLWfyzBc1lN2m/4RM28KubdBKQ4X5VMoLRNPQw==}
@@ -379,8 +379,8 @@ packages:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
 
-  '@daveyplate/better-auth-ui@3.2.6':
-    resolution: {integrity: sha512-VzE4XrfmL1huppII8xUKqtUkNBHOc/dX6dbooiBM5kyPgjZkUI/dr0j9OxHeC1s9ytJwXaYCvjzC0ULSGhv+8A==}
+  '@daveyplate/better-auth-ui@3.2.7':
+    resolution: {integrity: sha512-9roueJnDfU6D0gCTOukmNCexD+DIj1JvmuPzW/4EZC7toDIPRlKHO/BMcNtI0AKsDrkiZat6DvoiFk1BJpUh9g==}
     peerDependencies:
       '@daveyplate/better-auth-tanstack': ^1.3.6
       '@hookform/resolvers': '>=5.2.0'
@@ -747,12 +747,16 @@ packages:
     resolution: {integrity: sha512-aw1gNayWpdI/jSYVgzN5pL0cfzU02GT3NBpeT/DXbx1/1x7ZKxFPd9bwrzygx/qiwIQiJ1sw/zD8qY/kRvlGHA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/config-helpers@0.4.1':
-    resolution: {integrity: sha512-csZAzkNhsgwb0I/UAV6/RGFTbiakPCf0ZrGmrIxQpYvGZ00PhTkSnyKNolphgIvmnJeGw6rcGVEXfTzUnFuEvw==}
+  '@eslint/config-helpers@0.4.2':
+    resolution: {integrity: sha512-gBrxN88gOIf3R7ja5K9slwNayVcZgK6SOUORm2uBzTeIEfeVaIhOpCtTox3P6R7o2jLFwLFTLnC7kU/RGcYEgw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/core@0.16.0':
     resolution: {integrity: sha512-nmC8/totwobIiFcGkDza3GIKfAw1+hLiYVrh3I1nIomQ8PEr5cxg34jnkmGawul/ep52wGRAcyeDCNtWKSOj4Q==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/core@0.17.0':
+    resolution: {integrity: sha512-yL/sLrpmtDaFEiUj1osRP4TI2MDz1AddJL+jZ7KSqvBuliN4xqYY54IfdN8qD8Toa6g1iloph1fxQNkjOxrrpQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/eslintrc@3.3.1':
@@ -767,8 +771,8 @@ packages:
     resolution: {integrity: sha512-VtAOaymWVfZcmZbp6E2mympDIHvyjXs/12LqWYjVw6qjrfF+VK+fyG33kChz3nnK+SU5/NeHOqrTEHS8sXO3OA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/plugin-kit@0.4.0':
-    resolution: {integrity: sha512-sB5uyeq+dwCWyPi31B2gQlVlo+j5brPlWx4yZBrEaRo/nhdDE8Xke1gsGgtiBdaBTxuTkceLVuVt/pclrasb0A==}
+  '@eslint/plugin-kit@0.4.1':
+    resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@floating-ui/core@1.7.3':
@@ -980,21 +984,21 @@ packages:
       '@types/node':
         optional: true
 
-  '@instantdb/core@0.22.39':
-    resolution: {integrity: sha512-xZdT5BsX4O/GNo5OuQ6VnXZCuemn1ikZfMXYmtWoMGNE7oUoKfAS1bdIHAfFfbKglglckFqw0IJTQKLvjZ6BOg==}
+  '@instantdb/core@0.22.40':
+    resolution: {integrity: sha512-H0URIO31+I+RWU4G/o9qI8aHjqYS23j+MhXiNWCI6GQm6ZJL5RYVA3k4yPa3Uu+0o7wq9/5SSBHIJMyi4btKMQ==}
 
-  '@instantdb/react-common@0.22.39':
-    resolution: {integrity: sha512-aE6JswpTZ8V45dAedt3M23p2WPSPvkk8zxlFFyoAkLN/zHsuB29/GteqOMfE1DFhJ1G3s2ZMMorJo+NL3l+/oA==}
+  '@instantdb/react-common@0.22.40':
+    resolution: {integrity: sha512-VdJJDdLEpP2KKqNu28r/2rji5fILgR/xkvQb3ZUqlkD1mBKw7pnym7H+Z77bATiq1l98tVoV2SYeI/9oJAq3sw==}
     peerDependencies:
       react: '>=16'
 
-  '@instantdb/react@0.22.39':
-    resolution: {integrity: sha512-DyP28zeStQw1xi5AJa0ON5mQ1t+w+K5Uu4HglhFP9d7D5S6Jbljv3BJQ9IG6105fBwN5YLIWPrtxkS0nlreYhw==}
+  '@instantdb/react@0.22.40':
+    resolution: {integrity: sha512-7UhN9FzVLRLCCPwDLTEuquydrCgVdTl/Jlwt5w2YAPybgSB5Kpg1R16NJF0pC0Qk5RuFVDaoKqqVvqBc7wgmzg==}
     peerDependencies:
       react: '>=16'
 
-  '@instantdb/version@0.22.39':
-    resolution: {integrity: sha512-s2Rf5pPHYz3HkrVjhPwHvudkHbBGQ73Ih1TvGG7oErPcF6TxfgWOTS/Uw8C8BsE2vO1O5D7fijcwzPnrQYceQg==}
+  '@instantdb/version@0.22.40':
+    resolution: {integrity: sha512-Y+ugVnBPo8i6axKucV37jysI1clztxLkLQQHew+1fWQzX1wO4KseGczne/cSyVyzhkxg2eOhumkkYkHTMJbLqA==}
 
   '@isaacs/balanced-match@4.0.1':
     resolution: {integrity: sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ==}
@@ -2402,12 +2406,12 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  baseline-browser-mapping@2.8.20:
-    resolution: {integrity: sha512-JMWsdF+O8Orq3EMukbUN1QfbLK9mX2CkUmQBcW2T0s8OmdAUL5LLM/6wFwSrqXzlXB13yhyK9gTKS1rIizOduQ==}
+  baseline-browser-mapping@2.8.21:
+    resolution: {integrity: sha512-JU0h5APyQNsHOlAM7HnQnPToSDQoEBZqzu/YBlqDnEeymPnZDREeXJA3KBMQee+dKteAxZ2AtvQEvVYdZf241Q==}
     hasBin: true
 
-  better-auth@1.3.33:
-    resolution: {integrity: sha512-4jKI/rbpOh/Qu4puM6sMFvqzmp2sXiZdqqcIYI7fvdb27jBjVylRG7b4nhSHUbl4zXAgsb/FSMi2Jx2sy/5EbA==}
+  better-auth@1.3.34:
+    resolution: {integrity: sha512-LWA52SlvnUBJRbN8VLSTLILPomZY3zZAiLxVJCeSQ5uVmaIKkMBhERitkfJcXB9RJcfl4uP+3EqKkb6hX1/uiw==}
     peerDependencies:
       '@lynx-js/react': '*'
       '@sveltejs/kit': '*'
@@ -2873,8 +2877,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.242:
-    resolution: {integrity: sha512-msZ7SYGFpXkm/iUizlMrm/FPNeYo8uSltQccLVFO3fV4RN2JWGdG7Aatztxtw3uDWp3DkupfkrosLjUnhY+iOw==}
+  electron-to-chromium@1.5.243:
+    resolution: {integrity: sha512-ZCphxFW3Q1TVhcgS9blfut1PX8lusVi2SvXQgmEEnK4TCmE1JhH2JkjJN+DNt0pJJwfBri5AROBnz2b/C+YU9g==}
 
   elen@1.0.10:
     resolution: {integrity: sha512-ZL799/V/kzxYJ6Wlfktreq6qQWfGc3VkGUQJW5lZQ8/MhsQiKTAwERPfhEwIsV2movRGe2DfV7H2MjRw76Z7Wg==}
@@ -3923,8 +3927,8 @@ packages:
     resolution: {integrity: sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  node-releases@2.0.26:
-    resolution: {integrity: sha512-S2M9YimhSjBSvYnlr5/+umAnPHE++ODwt5e2Ij6FoX45HA/s4vHdkDx1eax2pAPeAOqu4s9b7ppahsyEFdVqQA==}
+  node-releases@2.0.27:
+    resolution: {integrity: sha512-nmh3lCkYZ3grZvqcCH+fjmQ7X+H0OeZgP40OierEaAptX4XofMh5kwNbWh7lBduUzCcV/8kZ+NDLCwm2iorIlA==}
 
   npm-normalize-package-bin@5.0.0:
     resolution: {integrity: sha512-CJi3OS4JLsNMmr2u07OJlhcrPxCeOeP/4xq67aWNai6TNWWbTrlNDgl8NcFKVlcBKp18GPj+EzbNIgrBfZhsag==}
@@ -5048,7 +5052,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@better-auth/core@1.3.33(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)':
+  '@better-auth/core@1.3.34(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)':
     dependencies:
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
@@ -5058,9 +5062,9 @@ snapshots:
       nanostores: 1.0.1
       zod: 4.1.12
 
-  '@better-auth/telemetry@1.3.33(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)':
+  '@better-auth/telemetry@1.3.34(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)':
     dependencies:
-      '@better-auth/core': 1.3.33(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)
+      '@better-auth/core': 1.3.34(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
     transitivePeerDependencies:
@@ -5075,21 +5079,21 @@ snapshots:
 
   '@date-fns/tz@1.4.1': {}
 
-  '@daveyplate/better-auth-tanstack@1.3.6(@tanstack/query-core@5.90.5)(@tanstack/react-query@5.90.5(react@19.2.0))(better-auth@1.3.33(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@daveyplate/better-auth-tanstack@1.3.6(@tanstack/query-core@5.90.5)(@tanstack/react-query@5.90.5(react@19.2.0))(better-auth@1.3.34(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@tanstack/query-core': 5.90.5
       '@tanstack/react-query': 5.90.5(react@19.2.0)
-      better-auth: 1.3.33(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      better-auth: 1.3.34(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  '@daveyplate/better-auth-ui@3.2.6(4b94b26823677104d05113826a81985e)':
+  '@daveyplate/better-auth-ui@3.2.7(d98467ac9c4c3c76a77b8539229a5ab6)':
     dependencies:
       '@better-fetch/fetch': 1.1.18
-      '@daveyplate/better-auth-tanstack': 1.3.6(@tanstack/query-core@5.90.5)(@tanstack/react-query@5.90.5(react@19.2.0))(better-auth@1.3.33(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@daveyplate/better-auth-tanstack': 1.3.6(@tanstack/query-core@5.90.5)(@tanstack/react-query@5.90.5(react@19.2.0))(better-auth@1.3.34(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@hcaptcha/react-hcaptcha': 1.14.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@hookform/resolvers': 5.2.2(react-hook-form@7.65.0(react@19.2.0))
-      '@instantdb/react': 0.22.39(react@19.2.0)
+      '@instantdb/react': 0.22.40(react@19.2.0)
       '@marsidev/react-turnstile': 1.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@noble/hashes': 2.0.1
       '@radix-ui/react-avatar': 1.1.10(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -5110,7 +5114,7 @@ snapshots:
       '@triplit/client': 1.0.50(typescript@5.9.3)
       '@triplit/react': 1.0.51(react@19.2.0)(typescript@5.9.3)
       '@wojtekmaj/react-recaptcha-v3': 0.1.4(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      better-auth: 1.3.33(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      better-auth: 1.3.34(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       class-variance-authority: 0.7.1
       clsx: 2.1.1
       input-otp: 1.4.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -5333,11 +5337,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/config-helpers@0.4.1':
+  '@eslint/config-helpers@0.4.2':
     dependencies:
-      '@eslint/core': 0.16.0
+      '@eslint/core': 0.17.0
 
   '@eslint/core@0.16.0':
+    dependencies:
+      '@types/json-schema': 7.0.15
+
+  '@eslint/core@0.17.0':
     dependencies:
       '@types/json-schema': 7.0.15
 
@@ -5359,9 +5367,9 @@ snapshots:
 
   '@eslint/object-schema@2.1.7': {}
 
-  '@eslint/plugin-kit@0.4.0':
+  '@eslint/plugin-kit@0.4.1':
     dependencies:
-      '@eslint/core': 0.16.0
+      '@eslint/core': 0.17.0
       levn: 0.4.1
 
   '@floating-ui/core@1.7.3':
@@ -5525,27 +5533,27 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.19.24
 
-  '@instantdb/core@0.22.39':
+  '@instantdb/core@0.22.40':
     dependencies:
-      '@instantdb/version': 0.22.39
+      '@instantdb/version': 0.22.40
       mutative: 1.3.0
       uuid: 11.1.0
 
-  '@instantdb/react-common@0.22.39(react@19.2.0)':
+  '@instantdb/react-common@0.22.40(react@19.2.0)':
     dependencies:
-      '@instantdb/core': 0.22.39
-      '@instantdb/version': 0.22.39
+      '@instantdb/core': 0.22.40
+      '@instantdb/version': 0.22.40
       react: 19.2.0
 
-  '@instantdb/react@0.22.39(react@19.2.0)':
+  '@instantdb/react@0.22.40(react@19.2.0)':
     dependencies:
-      '@instantdb/core': 0.22.39
-      '@instantdb/react-common': 0.22.39(react@19.2.0)
-      '@instantdb/version': 0.22.39
+      '@instantdb/core': 0.22.40
+      '@instantdb/react-common': 0.22.40(react@19.2.0)
+      '@instantdb/version': 0.22.40
       eventsource: 4.0.0
       react: 19.2.0
 
-  '@instantdb/version@0.22.39': {}
+  '@instantdb/version@0.22.40': {}
 
   '@isaacs/balanced-match@4.0.1': {}
 
@@ -7035,12 +7043,12 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  baseline-browser-mapping@2.8.20: {}
+  baseline-browser-mapping@2.8.21: {}
 
-  better-auth@1.3.33(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  better-auth@1.3.34(next@16.0.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
-      '@better-auth/core': 1.3.33(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)
-      '@better-auth/telemetry': 1.3.33(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)
+      '@better-auth/core': 1.3.34(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)
+      '@better-auth/telemetry': 1.3.34(better-call@1.0.19)(jose@6.1.0)(kysely@0.28.8)(nanostores@1.0.1)
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
       '@noble/ciphers': 2.0.1
@@ -7103,10 +7111,10 @@ snapshots:
 
   browserslist@4.27.0:
     dependencies:
-      baseline-browser-mapping: 2.8.20
+      baseline-browser-mapping: 2.8.21
       caniuse-lite: 1.0.30001751
-      electron-to-chromium: 1.5.242
-      node-releases: 2.0.26
+      electron-to-chromium: 1.5.243
+      node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.27.0)
 
   buffer-from@1.1.2: {}
@@ -7399,7 +7407,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.242: {}
+  electron-to-chromium@1.5.243: {}
 
   elen@1.0.10: {}
 
@@ -7753,11 +7761,11 @@ snapshots:
       '@eslint-community/eslint-utils': 4.9.0(eslint@9.38.0(jiti@2.6.1))
       '@eslint-community/regexpp': 4.12.2
       '@eslint/config-array': 0.21.1
-      '@eslint/config-helpers': 0.4.1
+      '@eslint/config-helpers': 0.4.2
       '@eslint/core': 0.16.0
       '@eslint/eslintrc': 3.3.1
       '@eslint/js': 9.38.0
-      '@eslint/plugin-kit': 0.4.0
+      '@eslint/plugin-kit': 0.4.1
       '@humanfs/node': 0.16.7
       '@humanwhocodes/module-importer': 1.0.1
       '@humanwhocodes/retry': 0.4.3
@@ -8595,7 +8603,7 @@ snapshots:
       fetch-blob: 3.2.0
       formdata-polyfill: 4.0.10
 
-  node-releases@2.0.26: {}
+  node-releases@2.0.27: {}
 
   npm-normalize-package-bin@5.0.0: {}
 

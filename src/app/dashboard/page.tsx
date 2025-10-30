@@ -1,38 +1,28 @@
 "use client"
 
-import { SignedIn, SignedOut } from "@daveyplate/better-auth-ui"
+import { AuthGuard } from "../../components/app/components/AuthGuard"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
-export default function Home() {
+export default function DashboardPage() {
   return (
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            <SignedIn>
-              ようこそ、PME設備のライフサイクル管理システムへ
-            </SignedIn>
-            <SignedOut>
-              PME Lifecycle Management
-            </SignedOut>
-          </h1>
-          <p className="text-muted-foreground mt-2">
-            <SignedIn>
-              設備のライフサイクルを効率的に管理しましょう
-            </SignedIn>
-            <SignedOut>
-              PME設備のライフサイクル管理システムへようこそ。サインインして開始してください。
-            </SignedOut>
-          </p>
-        </div>
+    <AuthGuard>
+        <div className="space-y-6">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">ダッシュボード</h1>
+            <p className="text-muted-foreground mt-2">
+              システムの概要と主要な統計情報を表示します
+            </p>
+          </div>
 
-        <SignedIn>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">設備数</CardTitle>
+                <Badge variant="secondary">新規</Badge>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">0</div>
+                <div className="text-2xl font-bold">12</div>
                 <p className="text-xs text-muted-foreground">登録設備</p>
               </CardContent>
             </Card>
@@ -41,7 +31,7 @@ export default function Home() {
                 <CardTitle className="text-sm font-medium">メンテナンス予定</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">0</div>
+                <div className="text-2xl font-bold">5</div>
                 <p className="text-xs text-muted-foreground">今月の予定</p>
               </CardContent>
             </Card>
@@ -50,7 +40,7 @@ export default function Home() {
                 <CardTitle className="text-sm font-medium">未完了タスク</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">0</div>
+                <div className="text-2xl font-bold">3</div>
                 <p className="text-xs text-muted-foreground">保留中</p>
               </CardContent>
             </Card>
@@ -59,7 +49,7 @@ export default function Home() {
                 <CardTitle className="text-sm font-medium">完了率</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">-</div>
+                <div className="text-2xl font-bold">85%</div>
                 <p className="text-xs text-muted-foreground">今月の完了率</p>
               </CardContent>
             </Card>
@@ -67,34 +57,20 @@ export default function Home() {
 
           <Card>
             <CardHeader>
-              <CardTitle>ダッシュボード</CardTitle>
+              <CardTitle>このページについて</CardTitle>
               <CardDescription>
-                システムの概要と主要な統計情報を表示します
+                このページは認証が必要なページの例です
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                左側のサイドバーから各機能にアクセスできます。
+                ログインしていないユーザーがこのページにアクセスしようとすると、
+                自動的にログインページにリダイレクトされます。
               </p>
             </CardContent>
           </Card>
-        </SignedIn>
-
-        <SignedOut>
-          <Card>
-            <CardHeader>
-              <CardTitle>サインインが必要です</CardTitle>
-              <CardDescription>
-                このシステムを使用するには、アカウントにサインインしてください
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                右上の「サインイン」ボタンからログインできます。
-              </p>
-            </CardContent>
-          </Card>
-        </SignedOut>
-      </div>
+        </div>
+    </AuthGuard>
   )
 }
+

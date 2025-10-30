@@ -1,7 +1,7 @@
 "use client"
 
 import { AuthUIProvider } from "@daveyplate/better-auth-ui"
-import { authClient } from "@/lib/auth-client"
+import { authClient } from "@/core/better-auth/auth-client"
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     return (
