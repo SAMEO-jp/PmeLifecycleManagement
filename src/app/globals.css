@@ -133,3 +133,29 @@
     font-family: var(--font-russo-one), sans-serif;
   }
 }
+
+/* UserButtonのカスタマイズ */
+.custom-user-button {
+  @apply w-full;
+}
+
+.custom-user-button button {
+  @apply w-full justify-start bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition-colors rounded-md p-2 border-0;
+}
+
+.custom-user-button button:hover {
+  @apply bg-gray-200 dark:bg-gray-700 shadow-sm;
+}
+
+.custom-user-button img {
+  @apply bg-primary/20 rounded-full border border-primary/30;
+}
+
+/* UserButtonドロップダウンメニューの位置調整 */
+.custom-user-button [data-radix-popper-content-wrapper] {
+  @apply translate-x-2;
+}
+
+.custom-user-button [data-radix-popover-content] {
+  @apply left-2;
+}

@@ -1,2 +1,2 @@
-export { HeaderNavigation } from "./HeaderNavigation"
-export { HeaderAuth } from "./HeaderAuth"
+export { HeaderNavigationSection } from "./HeaderNavigationSection"
+export { HeaderAuthSection } from "./HeaderAuthSection"

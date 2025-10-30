@@ -22,6 +22,12 @@ export const auth = betterAuth({
         enabled: true,
         autoSignIn: true, // サインアップ後に自動的にサインイン
     },
+    session: {
+        cookieCache: {
+            enabled: true,
+            maxAge: 60 * 60 * 24 * 7, // 7日間
+        },
+    },
     advanced: {
         database: {
             generateId: () => nanoid(10),// 10文字のランダムなIDを生成
