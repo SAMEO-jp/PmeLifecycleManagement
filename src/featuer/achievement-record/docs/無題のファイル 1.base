@@ -1,0 +1,19 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.inFolder("src/featuer/achievement-record/docs")
+    order:
+      - file.name
+      - 日本語名
+      - 仕様書
+      - 仕様書No.
+      - 実績日報の仕様書
+    sort:
+      - property: 日本語名
+        direction: ASC
+    columnSize:
+      file.name: 210
+      note.日本語名: 194
+      note.仕様書: 90

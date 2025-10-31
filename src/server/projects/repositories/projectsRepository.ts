@@ -3,8 +3,8 @@
  * データベースアクセスを担当
  */
 
-// Drizzleの count と like をインポート
-import { eq, and, count, like, isNotNull, isNull } from 'drizzle-orm';
+// Drizzleの関数をインポート
+import { eq, count, like, isNotNull, isNull } from 'drizzle-orm';
 import { db } from '@/db/index';
 // Drizzleの型推論 (Select/Insert) をインポート
 import {
@@ -18,8 +18,7 @@ import type {
   UpdateProjectParams,
   DeleteProjectParams,
   FindProjectsParams,
-  FindProjectByIdParams,
-  ProjectStatus
+  FindProjectByIdParams
 } from '../types';
 // 共通ユーティリティ関数をインポート
 import {

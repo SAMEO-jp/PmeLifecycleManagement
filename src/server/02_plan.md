@@ -186,41 +186,41 @@ src/server/
 ### 5. task_project_relations
 - [x] `src/server/task-project-relations/context/` フォルダ作成
 - [x] `context/taskProjectRelations-context.tsx` 作成（React Context定義）
-- [ ] `context/taskProjectRelations-provider.tsx` 作成（Providerコンポーネント）
+- [x] `context/taskProjectRelations-provider.tsx` 作成（Providerコンポーネント）
 - [x] `context/index.ts` 作成（エクスポート）
 - [x] `src/server/task-project-relations/hook/` フォルダ作成
-- [ ] `hook/useTaskProjectRelations.ts` 作成（一覧取得・状態管理）
-- [ ] `hook/useTaskProjectRelation.ts` 作成（単一取得・状態管理）
-- [ ] `hook/useCreateTaskProjectRelation.ts` 作成（作成処理）
-- [ ] `hook/useUpdateTaskProjectRelation.ts` 作成（更新処理）
-- [ ] `hook/useDeleteTaskProjectRelation.ts` 作成（削除処理）
-- [ ] `hook/useSyncTaskProjectRelations.ts` 作成（同期処理）
-- [ ] `hook/index.ts` 作成（エクスポート）
+- [x] `hook/useTaskProjectRelations.ts` 作成（一覧取得・状態管理）
+- [x] `hook/useTaskProjectRelation.ts` 作成（単一取得・状態管理）
+- [x] `hook/useCreateTaskProjectRelation.ts` 作成（作成処理）
+- [x] `hook/useUpdateTaskProjectRelation.ts` 作成（更新処理）
+- [x] `hook/useDeleteTaskProjectRelation.ts` 作成（削除処理）
+- [x] `hook/useSyncTaskProjectRelations.ts` 作成（同期処理）
+- [x] `hook/index.ts` 作成（エクスポート）
 
 ### 6. task_user_relations
-- [ ] `src/server/task-user-relations/context/` フォルダ作成
-- [ ] `context/taskUserRelations-context.tsx` 作成（React Context定義）
-- [ ] `context/taskUserRelations-provider.tsx` 作成（Providerコンポーネント）
-- [ ] `context/index.ts` 作成（エクスポート）
-- [ ] `src/server/task-user-relations/hook/` フォルダ作成
-- [ ] `hook/useTaskUserRelations.ts` 作成（一覧取得・状態管理）
-- [ ] `hook/useTaskUserRelation.ts` 作成（単一取得・状態管理）
-- [ ] `hook/useCreateTaskUserRelation.ts` 作成（作成処理）
-- [ ] `hook/useUpdateTaskUserRelation.ts` 作成（更新処理）
-- [ ] `hook/useDeleteTaskUserRelation.ts` 作成（削除処理）
-- [ ] `hook/useSyncTaskUserRelations.ts` 作成（同期処理）
-- [ ] `hook/index.ts` 作成（エクスポート）
+- [x] `src/server/task-user-relations/context/` フォルダ作成
+- [x] `context/taskUserRelations-context.tsx` 作成（React Context定義）
+- [x] `context/taskUserRelations-provider.tsx` 作成（Providerコンポーネント）
+- [x] `context/index.ts` 作成（エクスポート）
+- [x] `src/server/task-user-relations/hook/` フォルダ作成
+- [x] `hook/useTaskUserRelations.ts` 作成（一覧取得・状態管理）
+- [x] `hook/useTaskUserRelation.ts` 作成（単一取得・状態管理）
+- [x] `hook/useCreateTaskUserRelation.ts` 作成（作成処理）
+- [x] `hook/useUpdateTaskUserRelation.ts` 作成（更新処理）
+- [x] `hook/useDeleteTaskUserRelation.ts` 作成（削除処理）
+- [x] `hook/useSyncTaskUserRelations.ts` 作成（同期処理）
+- [x] `hook/index.ts` 作成（エクスポート）
 
 ### 7. task_equipment_relations
-- [ ] `src/server/task-equipment-relations/context/` フォルダ作成
-- [ ] `context/taskEquipmentRelations-context.tsx` 作成（React Context定義）
-- [ ] `context/taskEquipmentRelations-provider.tsx` 作成（Providerコンポーネント）
-- [ ] `context/index.ts` 作成（エクスポート）
-- [ ] `src/server/task-equipment-relations/hook/` フォルダ作成
-- [ ] `hook/useTaskEquipmentRelations.ts` 作成（一覧取得・状態管理）
-- [ ] `hook/useTaskEquipmentRelation.ts` 作成（単一取得・状態管理）
-- [ ] `hook/useCreateTaskEquipmentRelation.ts` 作成（作成処理）
-- [ ] `hook/useUpdateTaskEquipmentRelation.ts` 作成（更新処理）
-- [ ] `hook/useDeleteTaskEquipmentRelation.ts` 作成（削除処理）
-- [ ] `hook/useSyncTaskEquipmentRelations.ts` 作成（同期処理）
-- [ ] `hook/index.ts` 作成（エクスポート）
+- [x] `src/server/task-equipment-relations/context/` フォルダ作成
+- [x] `context/taskEquipmentRelations-context.tsx` 作成（React Context定義）
+- [x] `context/taskEquipmentRelations-provider.tsx` 作成（Providerコンポーネント）
+- [x] `context/index.ts` 作成（エクスポート）
+- [x] `src/server/task-equipment-relations/hook/` フォルダ作成
+- [x] `hook/useTaskEquipmentRelations.ts` 作成（一覧取得・状態管理）
+- [x] `hook/useTaskEquipmentRelation.ts` 作成（単一取得・状態管理）
+- [x] `hook/useCreateTaskEquipmentRelation.ts` 作成（作成処理）
+- [x] `hook/useUpdateTaskEquipmentRelation.ts` 作成（更新処理）
+- [x] `hook/useDeleteTaskEquipmentRelation.ts` 作成（削除処理）
+- [x] `hook/useSyncTaskEquipmentRelations.ts` 作成（同期処理）
+- [x] `hook/index.ts` 作成（エクスポート）

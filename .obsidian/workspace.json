@@ -26,12 +26,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docu/setup.md",
+                "file": "無題のファイル 3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "setup"
+              "title": "無題のファイル 3"
+            }
+          },
+          {
+            "id": "5c55c07c42a99d2f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "無題のファイル 4.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "無題のファイル 4"
             }
           },
           {
@@ -104,7 +118,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -266,44 +280,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "2fd2646888c70253",
+  "active": "5c55c07c42a99d2f",
   "lastOpenFiles": [
-    "src/featuer/projects/context/projects-provider.tsx",
-    "src/featuer/projects/context/index.ts",
-    "src/featuer/projects/context/projects-context.tsx",
-    "src/featuer/projects/context",
-    "src/featuer/projects/hook/index.ts",
-    "src/featuer/projects/hook/useDeleteProject.ts",
-    "src/featuer/projects/hook/useUpdateProject.ts",
-    "src/featuer/projects/hook/useCreateProject.ts",
-    "src/featuer/projects/hook/useProject.ts",
-    "src/featuer/projects/hook/useProjects.ts",
-    "src/featuer/projects/hook",
-    "Service 層.md",
-    "Context　Providerとは.md",
-    "無題のファイル 1.md",
-    "src/featuer/projects/repositories/m.update.md",
-    "src/featuer/projects/repositories/m.softDelete.md",
-    "src/featuer/projects/repositories/m.hardDelete.md",
-    "src/featuer/projects/repositories/m.findById.md",
-    "src/featuer/projects/repositories/m.findAll ( ).md",
-    "src/featuer/projects/repositories/m.create.md",
-    "src/featuer/projects/services/m.update.md",
-    "src/featuer/projects/services/m.softDelete.md",
-    "src/featuer/projects/services/m.hardDelete.md",
-    "src/featuer/projects/services/m.findById.md",
-    "src/featuer/projects/services/m.findAll ( ).md",
-    "src/featuer/projects/services/m.create.md",
-    "src/featuer/project/docs/m.update.md",
-    "src/featuer/projects/docs/updateProject.md",
-    "src/featuer/projects/docs/m.update.md",
-    "src/featuer/projects/docs/softDeleteProject.md",
-    "src/featuer/projects/docs/m.softDelete.md",
-    "src/featuer/projects/docs/m.hardDelete.md",
-    "src/featuer/projects/docs/m.findById.md",
-    "src/featuer/projects/docs/m.create.md",
-    "src/featuer/projects/docs/m.findAll ( ).md",
-    "src/featuer/projects/docs/getProjectById.md",
+    "無題のファイル 3.md",
+    "無題のファイル 4.md",
+    "docu/setup.md",
+    "src/__tests__/README.md",
+    "src/__tests__/server/projects/hook/useProject.test.tsx",
+    "src/__tests__/server/projects/hook",
+    "src/__tests__/server/projects/services/projectsService.test.ts",
+    "src/__tests__/server/projects/services",
+    "src/__tests__/server/projects/repositories/projectsRepository.test.ts",
+    "src/__tests__/server/projects/repositories",
+    "src/__tests__/server/projects",
+    "src/__tests__/server",
+    "src/__tests__/utils/test-utils.ts",
+    "src/__tests__/utils",
+    "src/server/02_plan.md",
+    "src/server/01_plan.md",
+    "src/server/TASKS_BACKEND_PLAN.md",
+    "src/server/projects/README.md",
+    "docu/docs/updateProject.md",
+    "docu/docs/softDeleteProject.md",
+    "docu/docs/getProjectById.md",
+    "docu/docs/getAllProjects.md",
+    "docu/docs/createProject.md",
+    "docu/docs/README.md",
+    "docu/docs/ProjectsService.md",
+    "docu/docs/ProjectsRepository.md",
+    "docu/docs/17_次のステップ.md",
+    "docu/docs/16_設計原則のまとめ.md",
+    "docu/docs/15_データフロー図.md",
+    "docu/docs/14_ユースケース詳細仕様_UC06_プロジェクト検索.md",
+    "docu/docs/13_ユースケース詳細仕様_UC05_プロジェクト論理削除.md",
+    "docu/docs/12_ユースケース詳細仕様_UC04_プロジェクト更新.md",
+    "docu/docs/11_ユースケース詳細仕様_UC03_プロジェクト詳細取得.md",
+    "docu/docs/10_ユースケース詳細仕様_UC02_プロジェクト一覧取得.md",
+    "docu/docs/09_ユースケース詳細仕様_UC01_プロジェクト作成.md",
+    "docu/docs/08_レイヤー間依存関係の原則.md",
     "public/ChatGPT Image 2025年10月30日 10_15_31.png",
     "public/NipponSeitetsu.svg"
   ]

@@ -1,0 +1,211 @@
+// PMESystem Database Schema - DBML Format
+
+// =========================================
+// AUTH TABLES
+// =========================================
+
+Table users {
+  id text [pk]
+  name text [not null]
+  email text [not null, unique]
+  email_verified boolean [default: false, not null]
+  image text
+  created_at timestamp [default: now(), not null]
+  updated_at timestamp [not null]
+}
+
+Table sessions {
+  id text [pk]
+  expires_at timestamp [not null]
+  token text [not null, unique]
+  created_at timestamp [default: now(), not null]
+  updated_at timestamp [not null]
+  ip_address text
+  user_agent text
+  user_id text [not null]
+}
+
+Table accounts {
+  id text [pk]
+  account_id text [not null]
+  provider_id text [not null]
+  user_id text [not null]
+  access_token text
+  refresh_token text
+  id_token text
+  access_token_expires_at timestamp
+  refresh_token_expires_at timestamp
+  scope text
+  password text
+  created_at timestamp [default: now(), not null]
+  updated_at timestamp [not null]
+}
+
+Table verifications {
+  id text [pk]
+  identifier text [not null]
+  value text [not null]
+  expires_at timestamp [not null]
+  created_at timestamp [default: now(), not null]
+  updated_at timestamp [not null]
+}
+
+// =========================================
+// CORE BUSINESS TABLES
+// =========================================
+
+Table tasks {
+  id text [pk]
+  task_name text [not null]
+  task_type_id text [not null]
+  plan_id text // Note: このフィールドは taskProjectRelations で管理されるため不要になる可能性
+  created_at timestamp [default: now(), not null]
+  deleted_at timestamp
+}
+
+Table projects {
+  id text [pk]
+  project_name text [not null]
+  project_number text [not null] // PME番号
+  created_at timestamp [default: now(), not null]
+  deleted_at timestamp
+}
+
+Table task_types {
+  id text [pk]
+  type_name text [not null, unique]
+  description text
+  color_code text
+  sort_order text
+  is_active text [default: 'true']
+  created_at timestamp [default: now(), not null]
+  updated_at timestamp [default: now(), not null]
+}
+
+Table equipment_master {
+  id text [pk]
+  equipment_name text [not null]
+  parent_id text
+  created_at timestamp [default: now(), not null]
+  deleted_at timestamp
+}
+
+Table purchase_item_master {
+  id text [pk]
+  purchase_item_name text [not null]
+  parent_id text
+  created_at timestamp [default: now(), not null]
+  deleted_at timestamp
+}
+
+Table task_plan_dates {
+  id text [pk]
+  task_id text [not null]
+  planned_start_date date [not null]
+  planned_end_date date [not null]
+  plan_type_name text [not null]
+  description text
+  is_active text [default: 'true']
+  created_at timestamp [default: now(), not null]
+  updated_at timestamp [default: now(), not null]
+}
+
+// =========================================
+// RELATION TABLES
+// =========================================
+
+Table task_project_relations {
+  task_id text [not null]
+  project_id text [not null]
+  created_at timestamp [default: now(), not null]
+  relation_type text [default: 'default']
+  sort_order text
+
+  Indexes {
+    (task_id, project_id) [pk]
+  }
+}
+
+Table task_user_relations {
+  task_id text [not null]
+  user_id text [not null]
+  created_at timestamp [default: now(), not null]
+  role_type text [default: 'assignee']
+  estimated_hours text
+  actual_hours text
+
+  Indexes {
+    (task_id, user_id) [pk]
+  }
+}
+
+Table task_equipment_relations {
+  task_id text [not null]
+  equipment_id text [not null]
+  created_at timestamp [default: now(), not null]
+  usage_type text [default: 'main']
+  planned_hours integer
+  actual_hours integer
+  quantity integer [default: 1]
+
+  Indexes {
+    (task_id, equipment_id) [pk]
+  }
+}
+
+Table task_purchase_item_relations {
+  task_id text [not null]
+  purchase_item_id text [not null]
+  created_at timestamp [default: now(), not null]
+  usage_type text [default: 'material']
+  required_quantity integer [default: 1]
+  actual_quantity integer
+  unit_price decimal(10,2)
+  currency text [default: 'JPY']
+
+  Indexes {
+    (task_id, purchase_item_id) [pk]
+  }
+}
+
+Table task_task_type_relations {
+  task_id text [not null]
+  task_type_id text [not null]
+  created_at timestamp [default: now(), not null]
+  priority text [default: 'primary']
+  work_ratio text
+
+  Indexes {
+    (task_id, task_type_id) [pk]
+  }
+}
+
+// =========================================
+// RELATIONSHIPS
+// =========================================
+
+// Auth relationships
+Ref: sessions.user_id > users.id
+Ref: accounts.user_id > users.id
+
+// Task relationships
+Ref: task_project_relations.task_id > tasks.id
+Ref: task_project_relations.project_id > projects.id
+
+Ref: task_user_relations.task_id > tasks.id
+Ref: task_user_relations.user_id > users.id
+
+Ref: task_equipment_relations.task_id > tasks.id
+Ref: task_equipment_relations.equipment_id > equipment_master.id
+
+Ref: task_purchase_item_relations.task_id > tasks.id
+Ref: task_purchase_item_relations.purchase_item_id > purchase_item_master.id
+
+Ref: task_task_type_relations.task_id > tasks.id
+Ref: task_task_type_relations.task_type_id > task_types.id
+
+Ref: task_plan_dates.task_id > tasks.id
+
+// Self-referencing relationships (hierarchical)
+Ref: equipment_master.parent_id > equipment_master.id
+Ref: purchase_item_master.parent_id > purchase_item_master.id
