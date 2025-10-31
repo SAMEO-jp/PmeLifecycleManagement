@@ -1,6 +1,6 @@
 "use client"
 
-import React, { createContext, useContext, ReactNode, useMemo } from "react"
+import React, { createContext, useContext, ReactNode, useMemo, useState } from "react"
 import { menuItems as rawMenuItems } from "./menuItems"
 
 export interface MenuItem {
@@ -9,8 +9,12 @@ export interface MenuItem {
   icon: any
 }
 
+export type ActiveView = 'default' | 'project-join' | 'project-create' | 'project-task-create' | 'project-list' | 'tasks' | 'past-records' | 'task-types-management' | 'equipment-management' | 'task-create'
+
 interface MenuContextType {
   menuItems: MenuItem[]
+  activeView: ActiveView
+  setActiveView: (view: ActiveView) => void
 }
 
 const MenuContext = createContext<MenuContextType | undefined>(undefined)
@@ -21,8 +25,13 @@ interface MenuProviderProps {
 
 export function MenuProvider({ children }: MenuProviderProps) {
   const menuItems = useMemo(() => rawMenuItems, [])
+  const [activeView, setActiveView] = useState<ActiveView>('default')
 
-  const contextValue = useMemo(() => ({ menuItems }), [menuItems])
+  const contextValue = useMemo(() => ({
+    menuItems,
+    activeView,
+    setActiveView
+  }), [menuItems, activeView])
 
   return (
     <MenuContext.Provider value={contextValue}>

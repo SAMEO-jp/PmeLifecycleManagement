@@ -11,10 +11,16 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { useMenuContext } from "./contexts/MenuContext"
+import { AchievementRecordSidebarSection } from "./featuer/achievement-recode/AchievementRecordSidebarSection"
 
 export function SidebarContent() {
   const pathname = usePathname()
   const { menuItems } = useMenuContext()
+
+  // achievement-recordページの場合、特別なコンテンツを表示
+  if (pathname === "/achievement/achievement-record") {
+    return <AchievementRecordSidebarSection />
+  }
 
   return (
     <ShadcnSidebarContent>

@@ -8,6 +8,13 @@
       "when": 1761721324173,
       "tag": "0000_graceful_phantom_reporter",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1761811111755,
+      "tag": "0001_far_madrox",
+      "breakpoints": true
     }
   ]
 }

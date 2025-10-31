@@ -4,35 +4,103 @@
     "type": "split",
     "children": [
       {
-        "id": "f3d1fcb9d95e6de4",
+        "id": "9225b2ab3a121368",
         "type": "tabs",
         "children": [
           {
-            "id": "04b50b76f4757ddc",
+            "id": "d2be3a00ca77c627",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "docu/AUTH_GUARD_USAGE.md",
-                "mode": "source",
-                "source": false
+                "file": "src/featuer/achievement-record/docs/無題のファイル 1.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "AUTH_GUARD_USAGE"
+              "icon": "lucide-table",
+              "title": "無題のファイル 1"
             }
           },
           {
-            "id": "6e3c2c431347f678",
+            "id": "2fd2646888c70253",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docu/PROJECT_STRUCTURE.md",
+                "file": "docu/setup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PROJECT_STRUCTURE"
+              "title": "setup"
+            }
+          },
+          {
+            "id": "fb49ca87e3eecd68",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Service 層.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Service 層"
+            }
+          },
+          {
+            "id": "641d3628fc4faa79",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Context　Providerとは.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Context　Providerとは"
+            }
+          },
+          {
+            "id": "ee5fe271939b487d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Service 層.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Service 層"
+            }
+          },
+          {
+            "id": "86ef841b2ffb0f44",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "無題のファイル 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "無題のファイル 1"
+            }
+          },
+          {
+            "id": "dc0414b197d8e55f",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "src/core/develop/無題のファイル 1.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "無題のファイル 1"
             }
           }
         ],
@@ -109,7 +177,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docu/PROJECT_STRUCTURE.md",
+                "file": "docu/setup.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +187,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "PROJECT_STRUCTUREへのバックリンク"
+              "title": "setupへのバックリンク"
             }
           },
           {
@@ -128,12 +196,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docu/PROJECT_STRUCTURE.md",
+                "file": "docu/setup.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "PROJECT_STRUCTUREからのアウトゴーイングリンク"
+              "title": "setupからのアウトゴーイングリンク"
             }
           },
           {
@@ -157,13 +225,27 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docu/PROJECT_STRUCTURE.md",
+                "file": "docu/setup.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "PROJECT_STRUCTUREのアウトライン"
+              "title": "setupのアウトライン"
+            }
+          },
+          {
+            "id": "24aba840b66e829c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "すべてのプロパティ"
             }
           }
         ]
@@ -184,26 +266,45 @@
       "bases:Create new base": false
     }
   },
-  "active": "6e3c2c431347f678",
+  "active": "2fd2646888c70253",
   "lastOpenFiles": [
-    "node_modules/@radix-ui",
-    "node_modules/@daveyplate",
-    "node_modules/@hookform",
-    "node_modules/@types",
-    "node_modules/@tailwindcss",
-    "node_modules",
-    "_tmp_504066_68307f2f60b2d3a8a968b14d35d37939",
-    "pnpm-lock.yaml.1652575365",
-    "_tmp_491487_f8ced10857774562953b9c8e5222b6e4",
-    "pnpm-lock.yaml",
-    "pnpm-lock.yaml.2029670051",
+    "src/featuer/projects/context/projects-provider.tsx",
+    "src/featuer/projects/context/index.ts",
+    "src/featuer/projects/context/projects-context.tsx",
+    "src/featuer/projects/context",
+    "src/featuer/projects/hook/index.ts",
+    "src/featuer/projects/hook/useDeleteProject.ts",
+    "src/featuer/projects/hook/useUpdateProject.ts",
+    "src/featuer/projects/hook/useCreateProject.ts",
+    "src/featuer/projects/hook/useProject.ts",
+    "src/featuer/projects/hook/useProjects.ts",
+    "src/featuer/projects/hook",
+    "Service 層.md",
+    "Context　Providerとは.md",
+    "無題のファイル 1.md",
+    "src/featuer/projects/repositories/m.update.md",
+    "src/featuer/projects/repositories/m.softDelete.md",
+    "src/featuer/projects/repositories/m.hardDelete.md",
+    "src/featuer/projects/repositories/m.findById.md",
+    "src/featuer/projects/repositories/m.findAll ( ).md",
+    "src/featuer/projects/repositories/m.create.md",
+    "src/featuer/projects/services/m.update.md",
+    "src/featuer/projects/services/m.softDelete.md",
+    "src/featuer/projects/services/m.hardDelete.md",
+    "src/featuer/projects/services/m.findById.md",
+    "src/featuer/projects/services/m.findAll ( ).md",
+    "src/featuer/projects/services/m.create.md",
+    "src/featuer/project/docs/m.update.md",
+    "src/featuer/projects/docs/updateProject.md",
+    "src/featuer/projects/docs/m.update.md",
+    "src/featuer/projects/docs/softDeleteProject.md",
+    "src/featuer/projects/docs/m.softDelete.md",
+    "src/featuer/projects/docs/m.hardDelete.md",
+    "src/featuer/projects/docs/m.findById.md",
+    "src/featuer/projects/docs/m.create.md",
+    "src/featuer/projects/docs/m.findAll ( ).md",
+    "src/featuer/projects/docs/getProjectById.md",
     "public/ChatGPT Image 2025年10月30日 10_15_31.png",
-    "public/NipponSeitetsu.svg",
-    "docu/setup.md",
-    "docu/PROJECT_STRUCTURE.md",
-    "docu/AUTH_GUARD_USAGE.md",
-    "Untitled.md",
-    "README.md",
-    "無題のファイル.md"
+    "public/NipponSeitetsu.svg"
   ]
 }

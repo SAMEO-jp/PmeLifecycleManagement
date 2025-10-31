@@ -1,7 +1,7 @@
 "use client"
 import React from "react"
-import { UserButton } from "@daveyplate/better-auth-ui"
 import { authClient } from "@/core/better-auth/auth-client"
+import NipponSteelUserButton from "./nipponSteelUserButton"
 
 export const SidebarFooter = React.memo(() => {
   // better-auth の useSession を直接使用
@@ -19,7 +19,7 @@ export const SidebarFooter = React.memo(() => {
 
   return (
     <div className="border-t p-4 bg-primary/5 hover:bg-primary/10 transition-colors">
-      <UserButton key="user-button" className="custom-user-button" />
+      <NipponSteelUserButton />
     </div>
   )
 })

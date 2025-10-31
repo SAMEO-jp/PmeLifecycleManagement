@@ -7,21 +7,10 @@ export default function Home() {
   return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            <SignedIn>
-              ようこそ、PME設備のライフサイクル管理システムへ
-            </SignedIn>
-            <SignedOut>
-              PME Lifecycle Management
-            </SignedOut>
-          </h1>
           <p className="text-muted-foreground mt-2">
             <SignedIn>
-              設備のライフサイクルを効率的に管理しましょう
+              本日もご安全に
             </SignedIn>
-            <SignedOut>
-              PME設備のライフサイクル管理システムへようこそ。サインインして開始してください。
-            </SignedOut>
           </p>
         </div>
 

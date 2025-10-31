@@ -1,0 +1,29 @@
+formulas:
+  Untitled: ""
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.inFolder("src/featuer/project/docs")
+        - file.ext == "md"
+    order:
+      - file.name
+      - ファイル種別
+      - 所属クラス
+      - 使用先
+      - 依存先
+      - レイヤー
+      - ユースケース
+      - メソッド名
+      - ドメイン
+      - テーブル
+      - クラス名
+    sort:
+      - property: 所属クラス
+        direction: ASC
+      - property: file.name
+        direction: ASC
+    columnSize:
+      file.name: 209
+      note.所属クラス: 176

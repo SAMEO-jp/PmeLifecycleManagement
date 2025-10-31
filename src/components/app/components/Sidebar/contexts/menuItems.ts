@@ -3,7 +3,8 @@ import {
   FileText,
   BarChart3,
   Building2,
-  Wrench
+  Wrench,
+  Trophy
 } from "lucide-react"
 import { MenuItem } from "./MenuContext"
 
@@ -27,6 +28,11 @@ export const menuItems: MenuItem[] = [
     title: "レポート",
     url: "/reports",
     icon: BarChart3,
+  },
+  {
+    title: "実績日報",
+    url: "/achievement",
+    icon: Trophy,
   },
   {
     title: "文書管理",
