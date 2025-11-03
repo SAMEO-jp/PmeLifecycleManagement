@@ -100,6 +100,7 @@ export function LeftProjectMakeComponent({ mode = 'create' }: LeftProjectMakeCom
   const [newProjectNumber, setNewProjectNumber] = useState("")
   const [isCreating, setIsCreating] = useState(false)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   // Supabaseからプロジェクトデータを取得
   useEffect(() => {
@@ -351,70 +352,183 @@ export function LeftProjectMakeComponent({ mode = 'create' }: LeftProjectMakeCom
 
   const handleJoinProject = async (projectId: string) => {
     try {
-      // 現在のユーザーを取得
+      console.log('=== プロジェクト参加処理開始 ===')
+      
+      // ==========================================
+      // ステップ1: プロジェクトIDとユーザーIDを取得
+      // ==========================================
+      console.log('📋 ステップ1: プロジェクトIDとユーザーIDを取得')
       const session = await authClient.getSession()
       if (!session?.data?.user?.id) {
-        console.error('ユーザーが認証されていません')
+        console.error('❌ ユーザーが認証されていません')
+        setErrorMessage('ユーザーが認証されていません。')
+        setTimeout(() => setErrorMessage(null), 5000)
         return
       }
       const currentUserId = session.data.user.id
+      console.log('   ✅ プロジェクトID:', projectId)
+      console.log('   ✅ ユーザーID:', currentUserId)
 
-      // プロジェクトのルートタスクを取得
-      console.log('プロジェクトルートタスクを検索します...', { projectId })
-
-      const { data: taskRelation, error: relationError } = await supabase
+      // ==========================================
+      // ステップ2: task_project_relationsテーブルから、
+      //            プロジェクトIDとプロジェクトルートタスクIDを持つレコードを検索
+      // ==========================================
+      console.log('🔍 ステップ2: task_project_relationsテーブルから検索')
+      console.log('   検索条件: project_id=' + projectId + ', relation_type=main')
+      
+      let { data: taskProjectRelation, error: taskProjectRelationError } = await supabase
         .from('task_project_relations')
-        .select(`
-          task_id,
-          tasks (
-            id,
-            task_name,
-            task_types (
-              type_name
-            )
-          )
-        `)
+        .select('task_id, project_id, relation_type')
         .eq('project_id', projectId)
         .eq('relation_type', 'main')
-        .single()
+        .is('deleted_at', null)
+        .maybeSingle()
 
-      console.log('プロジェクトルートタスク検索結果:', { taskRelation, relationError })
+      console.log('   検索結果:', {
+        error: taskProjectRelationError ? JSON.stringify(taskProjectRelationError, null, 2) : null,
+        data: taskProjectRelation ? JSON.stringify(taskProjectRelation, null, 2) : null
+      })
 
-      if (relationError || !taskRelation?.tasks) {
-        console.error('プロジェクトルートタスクが見つかりません:', {
-          error: relationError,
-          hasTaskRelation: !!taskRelation,
-          hasTasks: !!(taskRelation?.tasks)
-        })
-
-        // デバッグ用：該当プロジェクトの全タスク関連を確認
-        const { data: allRelations, error: allError } = await supabase
-          .from('task_project_relations')
-          .select('*')
-          .eq('project_id', projectId)
-
-        console.log('デバッグ：プロジェクトの全タスク関連:', { allRelations, allError })
-
+      // エラーが発生した場合（PGRST116はnot foundなので、新規作成が必要）
+      if (taskProjectRelationError) {
+        console.error('❌ プロジェクトルートタスクの検索エラー:', taskProjectRelationError)
+        setErrorMessage('プロジェクトルートタスクの検索に失敗しました。')
+        setTimeout(() => setErrorMessage(null), 5000)
         return
       }
 
-      // 既にユーザーがこのプロジェクトルートタスクに割り当てられているかチェック
+      // プロジェクトルートタスクが見つからない場合は作成
+      if (!taskProjectRelation) {
+        console.log('⚠️ プロジェクトルートタスクが見つかりません。新規作成します。')
+        
+        // プロジェクト情報を取得
+        const { data: projectData, error: projectError } = await supabase
+          .from('projects')
+          .select('project_name')
+          .eq('id', projectId)
+          .single()
+
+        if (projectError || !projectData) {
+          console.error('❌ プロジェクト情報取得エラー:', projectError)
+          setErrorMessage('プロジェクト情報の取得に失敗しました。')
+          setTimeout(() => setErrorMessage(null), 5000)
+          return
+        }
+
+        // プロジェクトルートタスク種類を確認
+        const { data: taskTypes, error: taskTypeError } = await supabase
+          .from('task_types')
+          .select('id')
+          .eq('type_name', 'プロジェクトルート')
+          .single()
+
+        if (taskTypeError || !taskTypes) {
+          console.error('❌ プロジェクトルートタスク種類が見つかりません:', taskTypeError)
+          setErrorMessage('プロジェクトルートタスク種類が見つかりません。')
+          setTimeout(() => setErrorMessage(null), 5000)
+          return
+        }
+
+        // ルートタスクを作成
+        const rootTask = {
+          id: crypto.randomUUID(),
+          task_name: `${projectData.project_name} - ルートタスク`,
+          task_type_id: taskTypes.id,
+        }
+
+        const { data: taskData, error: taskError } = await supabase
+          .from('tasks')
+          .insert(rootTask)
+          .select()
+          .single()
+
+        if (taskError || !taskData) {
+          console.error('❌ プロジェクトルートタスク作成エラー:', taskError)
+          setErrorMessage('プロジェクトルートタスクの作成に失敗しました。')
+          setTimeout(() => setErrorMessage(null), 5000)
+          return
+        }
+
+        // プロジェクトとタスクの関連付け
+        const { error: relationInsertError } = await supabase
+          .from('task_project_relations')
+          .insert({
+            task_id: taskData.id,
+            project_id: projectId,
+            relation_type: 'main',
+            sort_order: 0,
+          })
+
+        if (relationInsertError) {
+          console.error('❌ プロジェクトタスク関連付けエラー:', relationInsertError)
+          setErrorMessage('プロジェクトタスク関連付けに失敗しました。')
+          setTimeout(() => setErrorMessage(null), 5000)
+          return
+        }
+
+        // 作成したレコードを再取得
+        const { data: newTaskProjectRelation, error: newRelationError } = await supabase
+          .from('task_project_relations')
+          .select('task_id, project_id, relation_type')
+          .eq('project_id', projectId)
+          .eq('relation_type', 'main')
+          .is('deleted_at', null)
+          .maybeSingle()
+
+        if (newRelationError || !newTaskProjectRelation) {
+          console.error('❌ 作成したルートタスクの取得エラー:', newRelationError)
+          setErrorMessage('作成したルートタスクの確認に失敗しました。')
+          setTimeout(() => setErrorMessage(null), 5000)
+          return
+        }
+
+        taskProjectRelation = newTaskProjectRelation
+        console.log('   ✅ プロジェクトルートタスクを作成しました:', taskProjectRelation.task_id)
+      } else {
+        console.log('   ✅ プロジェクトルートタスクが見つかりました:', taskProjectRelation.task_id)
+      }
+
+      // プロジェクトルートタスクIDを取得
+      if (!taskProjectRelation) {
+        console.error('❌ プロジェクトルートタスクが見つかりません')
+        setErrorMessage('プロジェクトルートタスクが見つかりません。')
+        setTimeout(() => setErrorMessage(null), 5000)
+        return
+      }
+
+      const rootTaskId = taskProjectRelation.task_id
+      console.log('   ✅ プロジェクトルートタスクID:', rootTaskId)
+
+      // ==========================================
+      // ステップ3: 既にユーザーが参加済みかチェック
+      // ==========================================
+      console.log('🔍 ステップ3: 既存の参加状態をチェック')
+      console.log('   チェック条件: task_id=' + rootTaskId + ', user_id=' + currentUserId)
+      
       const { data: existingAssignment, error: checkAssignError } = await supabase
         .from('task_user_relations')
-        .select('id')
-        .eq('task_id', taskRelation.task_id)
+        .select('task_id, user_id')
+        .eq('task_id', rootTaskId)
         .eq('user_id', currentUserId)
         .is('deleted_at', null)
-        .single()
+        .maybeSingle()
 
-      if (checkAssignError && checkAssignError.code !== 'PGRST116') { // PGRST116 = not found
-        console.error('ユーザー割り当てチェックエラー:', checkAssignError)
+      console.log('   チェック結果:', {
+        error: checkAssignError ? JSON.stringify(checkAssignError, null, 2) : null,
+        data: existingAssignment ? JSON.stringify(existingAssignment, null, 2) : null
+      })
+
+      // エラーが発生した場合
+      if (checkAssignError) {
+        console.error('❌ ユーザー割り当てチェックエラー:', checkAssignError)
+        setErrorMessage('割り当て状態の確認に失敗しました。')
+        setTimeout(() => setErrorMessage(null), 5000)
         return
       }
 
+      // 既に参加済みの場合は処理終了
       if (existingAssignment) {
-        console.log('既にこのプロジェクトに参加しています')
-        // ローカルstateを更新
+        console.log('   ✅ 既にこのプロジェクトに参加しています')
         setProjects(prev => prev.map(project =>
           project.id === projectId
             ? { ...project, isJoined: true }
@@ -423,31 +537,53 @@ export function LeftProjectMakeComponent({ mode = 'create' }: LeftProjectMakeCom
         return
       }
 
-      // プロジェクトルートタスクにユーザーを割り当て
+      // ==========================================
+      // ステップ4: task_user_relationsテーブルに、
+      //            タスクIDとユーザーIDを持つレコードを作成
+      // ==========================================
+      console.log('📝 ステップ4: task_user_relationsテーブルにレコードを作成')
+      console.log('   挿入データ:', {
+        task_id: rootTaskId,
+        user_id: currentUserId,
+        role_type: 'assignee'
+      })
+      
       const { error: assignError } = await supabase
         .from('task_user_relations')
         .insert({
-          task_id: taskRelation.task_id,
+          task_id: rootTaskId,
           user_id: currentUserId,
           role_type: 'assignee', // 担当者として割り当て
         })
 
+      console.log('   挿入結果:', {
+        error: assignError ? JSON.stringify(assignError, null, 2) : null
+      })
+
       if (assignError) {
-        console.error('プロジェクト参加エラー:', assignError)
+        console.error('❌ プロジェクト参加エラー:', assignError)
+        setErrorMessage('プロジェクトへの参加に失敗しました。管理者にお問い合わせください。')
+        setTimeout(() => setErrorMessage(null), 5000)
         return
       }
 
-      // ローカルstateを更新
+      // ==========================================
+      // ステップ5: UIを更新
+      // ==========================================
+      console.log('🔄 ステップ5: UIを更新')
       setProjects(prev => prev.map(project =>
         project.id === projectId
           ? { ...project, isJoined: true }
           : project
       ))
 
-      console.log('プロジェクトに参加しました')
+      console.log('✅ プロジェクトに参加しました')
+      console.log('=== プロジェクト参加処理完了 ===')
 
     } catch (error) {
       console.error('プロジェクト参加処理中にエラーが発生しました:', error)
+      setErrorMessage('プロジェクト参加処理中にエラーが発生しました。')
+      setTimeout(() => setErrorMessage(null), 5000)
     }
   }
 
@@ -455,6 +591,15 @@ export function LeftProjectMakeComponent({ mode = 'create' }: LeftProjectMakeCom
   if (mode === 'join') {
     return (
       <div className="space-y-4 p-4">
+        {/* エラーメッセージ */}
+        {errorMessage && (
+          <Card className="p-3 bg-red-50 border-red-200">
+            <div className="flex items-center gap-2 text-red-800">
+              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+              <span className="text-sm font-medium">{errorMessage}</span>
+            </div>
+          </Card>
+        )}
         {isLoading ? (
           <div className="text-center text-muted-foreground">読み込み中...</div>
         ) : (
@@ -506,6 +651,16 @@ export function LeftProjectMakeComponent({ mode = 'create' }: LeftProjectMakeCom
           <div className="flex items-center gap-2 text-green-800">
             <div className="w-2 h-2 bg-green-500 rounded-full"></div>
             <span className="text-sm font-medium">プロジェクトが作成されました</span>
+          </div>
+        </Card>
+      )}
+
+      {/* エラーメッセージ */}
+      {errorMessage && (
+        <Card className="p-3 bg-red-50 border-red-200">
+          <div className="flex items-center gap-2 text-red-800">
+            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+            <span className="text-sm font-medium">{errorMessage}</span>
           </div>
         </Card>
       )}
