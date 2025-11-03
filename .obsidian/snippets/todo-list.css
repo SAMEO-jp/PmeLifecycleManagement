@@ -1,0 +1,553 @@
+/* ToDoリストページのスタイリング */
+
+.theme-dark,
+.theme-light {
+  --todo-accent: #4CAF50;
+  --todo-completed: #888;
+  --todo-pending: #FF9800;
+  --todo-border: #ddd;
+  --todo-bg-hover: rgba(76, 175, 80, 0.1);
+}
+
+/* メインヘッダーのスタイリング */
+.markdown-preview-view h1,
+.markdown-rendered h1 {
+  color: var(--text-accent);
+  border-bottom: 3px solid var(--interactive-accent);
+  padding-bottom: var(--size-4-2);
+  margin-bottom: var(--size-4-5);
+  font-size: 2em;
+  font-weight: 700;
+}
+
+/* セクションヘッダーのスタイリング */
+.markdown-preview-view h2,
+.markdown-rendered h2 {
+  color: var(--text-accent);
+  border-left: 6px solid var(--interactive-accent);
+  padding-left: var(--size-4-3);
+  padding-bottom: var(--size-4-1);
+  margin-top: var(--size-4-6);
+  margin-bottom: var(--size-4-3);
+  background: linear-gradient(90deg, var(--background-secondary) 0%, transparent 100%);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+
+/* サブセクションヘッダーのスタイリング（###） */
+.markdown-preview-view h3,
+.markdown-rendered h3 {
+  color: var(--text-normal);
+  margin-top: var(--size-4-4);
+  margin-bottom: var(--size-4-2);
+  font-weight: 600;
+  position: relative;
+  padding-left: var(--size-4-3);
+  font-size: 1.1em;
+}
+
+/* サブセクションの左側にアクセントライン（薄め） */
+.markdown-preview-view h3::before,
+.markdown-rendered h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--interactive-accent);
+  border-radius: var(--radius-s);
+  opacity: 0.4;
+}
+
+/* チェックボックスのカスタムスタイリング */
+.markdown-preview-view input[type="checkbox"],
+.markdown-rendered input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--todo-border);
+  border-radius: 4px;
+  background-color: var(--background-primary);
+  position: relative;
+  cursor: pointer;
+  margin-right: var(--size-4-2);
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+
+.markdown-preview-view input[type="checkbox"]:checked,
+.markdown-rendered input[type="checkbox"]:checked {
+  background-color: var(--todo-accent);
+  border-color: var(--todo-accent);
+}
+
+.markdown-preview-view input[type="checkbox"]:checked::after,
+.markdown-rendered input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* 未チェックのチェックボックスホバー効果 */
+.markdown-preview-view input[type="checkbox"]:not(:checked):hover,
+.markdown-rendered input[type="checkbox"]:not(:checked):hover {
+  border-color: var(--todo-accent);
+  box-shadow: 0 0 0 3px var(--todo-bg-hover);
+}
+
+/* チェックボックス付きリストアイテムのスタイリング */
+.markdown-preview-view li:has(input[type="checkbox"]),
+.markdown-rendered li:has(input[type="checkbox"]) {
+  margin: var(--size-4-2) 0;
+  padding: var(--size-4-1) var(--size-4-2);
+  border-radius: var(--radius-s);
+  transition: all 0.2s ease;
+}
+
+.markdown-preview-view li:has(input[type="checkbox"]):hover,
+.markdown-rendered li:has(input[type="checkbox"]):hover {
+  background-color: var(--background-modifier-hover);
+}
+
+/* 完了済みタスクのスタイリング */
+.markdown-preview-view li:has(input[type="checkbox"]:checked),
+.markdown-rendered li:has(input[type="checkbox"]:checked) {
+  opacity: 0.6;
+  text-decoration: line-through;
+  color: var(--todo-completed);
+}
+
+/* インデントされたリストのスタイリング */
+.markdown-preview-view ul ul,
+.markdown-rendered ul ul {
+  margin-left: var(--size-4-5);
+  border-left: 2px solid var(--background-modifier-border);
+  padding-left: var(--size-4-3);
+}
+
+/* チェックボックス付きのインデントリストの調整 */
+.markdown-preview-view ul ul li:has(input[type="checkbox"]),
+.markdown-rendered ul ul li:has(input[type="checkbox"]) {
+  margin-left: var(--size-4-4);
+  padding-left: 0;
+}
+
+/* さらに深いインデント（ul ul ul）の調整 */
+.markdown-preview-view ul ul ul,
+.markdown-rendered ul ul ul {
+  margin-left: var(--size-4-6);
+  padding-left: var(--size-4-2);
+}
+
+.markdown-preview-view ul ul ul li:has(input[type="checkbox"]),
+.markdown-rendered ul ul ul li:has(input[type="checkbox"]) {
+  margin-left: var(--size-4-3);
+  padding-left: 0;
+}
+
+/* 括弧内のテキストのスタイリング（ベンチマークなど） */
+.markdown-preview-view li em,
+.markdown-rendered li em {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9em;
+  margin-left: var(--size-4-2);
+}
+
+/* セクション内の空白行のスタイリング */
+.markdown-preview-view p:empty,
+.markdown-rendered p:empty {
+  margin: var(--size-4-2) 0;
+}
+
+/* 区切り線のスタイリング */
+.markdown-preview-view hr,
+.markdown-rendered hr {
+  border: none;
+  border-top: 1px solid var(--background-modifier-border);
+  margin: var(--size-4-4) 0;
+  opacity: 0.3;
+}
+
+/* タスクリストの全体的なスタイリング */
+.markdown-preview-view ul:first-of-type,
+.markdown-rendered ul:first-of-type {
+  margin-top: var(--size-4-3);
+}
+
+/* 完了タスク管理ページ用のマトリクススタイル */
+.markdown-preview-view table.task-completion-matrix,
+.markdown-rendered table.task-completion-matrix,
+.markdown-preview-view table:has(.task-number),
+.markdown-rendered table:has(.task-number) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--size-4-4) 0;
+  font-size: 0.9em;
+}
+
+.markdown-preview-view table.task-completion-matrix th,
+.markdown-rendered table.task-completion-matrix th,
+.markdown-preview-view table:has(.task-number) th,
+.markdown-rendered table:has(.task-number) th {
+  background-color: var(--background-secondary);
+  border: 2px solid var(--background-modifier-border);
+  padding: var(--size-4-2) var(--size-4-3);
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.markdown-preview-view table.task-completion-matrix td,
+.markdown-rendered table.task-completion-matrix td,
+.markdown-preview-view table:has(.task-number) td,
+.markdown-rendered table:has(.task-number) td {
+  border: 1px solid var(--background-modifier-border);
+  padding: var(--size-4-2) var(--size-4-3);
+  vertical-align: top;
+}
+
+.markdown-preview-view table.task-completion-matrix tr:nth-child(even),
+.markdown-rendered table.task-completion-matrix tr:nth-child(even),
+.markdown-preview-view table:has(.task-number) tr:nth-child(even),
+.markdown-rendered table:has(.task-number) tr:nth-child(even) {
+  background-color: var(--background-secondary-alt);
+}
+
+.markdown-preview-view table.task-completion-matrix tr:hover,
+.markdown-rendered table.task-completion-matrix tr:hover,
+.markdown-preview-view table:has(.task-number) tr:hover,
+.markdown-rendered table:has(.task-number) tr:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+/* タスク番号カラムのスタイル */
+.markdown-preview-view table.task-completion-matrix .task-number,
+.markdown-rendered table.task-completion-matrix .task-number,
+.markdown-preview-view table:has(.task-number) .task-number,
+.markdown-rendered table:has(.task-number) .task-number {
+  font-weight: 600;
+  color: var(--text-accent);
+  width: 60px;
+  text-align: center;
+}
+
+/* 完了予定日・完了実績日カラムのスタイル */
+.markdown-preview-view table.task-completion-matrix .date-cell,
+.markdown-rendered table.task-completion-matrix .date-cell,
+.markdown-preview-view table:has(.task-number) .date-cell,
+.markdown-rendered table:has(.task-number) .date-cell {
+  font-family: var(--font-monospace);
+  font-size: 0.9em;
+  color: var(--text-normal);
+}
+
+/* 遅延しているタスクのスタイル（完了実績日が予定日より遅い場合） */
+.markdown-preview-view table.task-completion-matrix tr.delayed,
+.markdown-rendered table.task-completion-matrix tr.delayed,
+.markdown-preview-view table:has(.task-number) tr.delayed,
+.markdown-rendered table:has(.task-number) tr.delayed {
+  border-left: 4px solid var(--todo-pending);
+}
+
+/* 予定通り完了したタスクのスタイル */
+.markdown-preview-view table.task-completion-matrix tr.on-time,
+.markdown-rendered table.task-completion-matrix tr.on-time,
+.markdown-preview-view table:has(.task-number) tr.on-time,
+.markdown-rendered table:has(.task-number) tr.on-time {
+  border-left: 4px solid var(--todo-accent);
+}
+
+/* リストアイテム内のリンクのスタイリング */
+.markdown-preview-view li a,
+.markdown-rendered li a {
+  color: var(--text-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.markdown-preview-view li a:hover,
+.markdown-rendered li a:hover {
+  color: var(--interactive-accent);
+  text-decoration: underline;
+}
+
+/* インラインコードのスタイリング（サービス名など） */
+.markdown-preview-view li code,
+.markdown-rendered li code {
+  background-color: var(--code-background);
+  color: var(--code-normal);
+  padding: 2px 6px;
+  border-radius: var(--radius-s);
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+/* タスクのステータスを示す色分け */
+.markdown-preview-view li:has(.task-pending),
+.markdown-rendered li:has(.task-pending) {
+  border-left: 4px solid var(--todo-pending);
+}
+
+.markdown-preview-view li:has(.task-completed),
+.markdown-rendered li:has(.task-completed) {
+  border-left: 4px solid var(--todo-accent);
+}
+
+/* 印刷用のスタイリング */
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm;
+    margin-top: 15mm; /* ヘッダー用のスペースを確保 */
+    margin-bottom: 20mm; /* フッター用のスペースを確保 */
+    
+    /* フッターにページ番号を追加（X / Y形式） */
+    @bottom-center {
+      content: counter(page) " / " counter(pages);
+      font-size: 10pt;
+      color: #666;
+      text-align: center;
+      padding-top: 5mm;
+    }
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black !important;
+    background: white !important;
+  }
+
+  /* 印刷時のページ設定 */
+  .markdown-preview-view,
+  .markdown-rendered {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* YAML frontmatterを印刷時に隠す */
+  .markdown-preview-view .frontmatter,
+  .markdown-rendered .frontmatter {
+    display: none !important;
+  }
+
+  /* 印刷用ヘッダー（YAML情報利用） */
+  .markdown-preview-view[data-title]:before,
+  .markdown-rendered[data-title]:before {
+    content: attr(data-title);
+    display: block;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 10mm;
+    color: black;
+    border-bottom: 1pt solid #ccc;
+    padding-bottom: 5mm;
+  }
+
+  /* チェックボックスを印刷用にシンプルに */
+  .markdown-preview-view input[type="checkbox"],
+  .markdown-rendered input[type="checkbox"] {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    width: 12pt;
+    height: 12pt;
+    border: 1pt solid black !important;
+    border-radius: 2pt;
+    background: white !important;
+    margin-right: 8pt;
+  }
+
+  .markdown-preview-view input[type="checkbox"]:checked,
+  .markdown-rendered input[type="checkbox"]:checked {
+    background: black !important;
+  }
+
+  .markdown-preview-view input[type="checkbox"]:checked::after,
+  .markdown-rendered input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white !important;
+    font-size: 10pt;
+    font-weight: bold;
+  }
+
+  /* 完了済みタスクの視覚化 */
+  .markdown-preview-view li:has(input[type="checkbox"]:checked),
+  .markdown-rendered li:has(input[type="checkbox"]:checked) {
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  /* ヘッダーの印刷用調整 */
+  .markdown-preview-view h1,
+  .markdown-rendered h1 {
+    font-size: 18pt;
+    color: black !important;
+    border-bottom: 2pt solid black !important;
+    page-break-after: avoid;
+  }
+
+  .markdown-preview-view h2,
+  .markdown-rendered h2 {
+    font-size: 14pt;
+    color: black !important;
+    border-left: 8pt solid black !important;
+    background: none !important;
+    page-break-after: avoid;
+  }
+
+  .markdown-preview-view h3,
+  .markdown-rendered h3 {
+    font-size: 12pt;
+    color: black !important;
+    border-left: 6pt solid black !important;
+    font-weight: 600;
+    margin-top: 12pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+  }
+
+  /* リストの調整 */
+  .markdown-preview-view ul,
+  .markdown-rendered ul {
+    margin: 8pt 0;
+  }
+
+  .markdown-preview-view li,
+  .markdown-rendered li {
+    break-inside: avoid;
+    margin: 4pt 0;
+  }
+
+  /* 印刷時の完了タスク管理マトリクス */
+  .markdown-preview-view table.task-completion-matrix,
+  .markdown-rendered table.task-completion-matrix,
+  .markdown-preview-view table:has(.task-number),
+  .markdown-rendered table:has(.task-number) {
+    border: 1pt solid black !important;
+    page-break-inside: avoid;
+  }
+
+  .markdown-preview-view table.task-completion-matrix th,
+  .markdown-rendered table.task-completion-matrix th,
+  .markdown-preview-view table:has(.task-number) th,
+  .markdown-rendered table:has(.task-number) th {
+    border: 1pt solid black !important;
+    background: #f0f0f0 !important;
+    color: black !important;
+    font-weight: bold;
+    padding: 4pt 6pt;
+  }
+
+  .markdown-preview-view table.task-completion-matrix td,
+  .markdown-rendered table.task-completion-matrix td,
+  .markdown-preview-view table:has(.task-number) td,
+  .markdown-rendered table:has(.task-number) td {
+    border: 1pt solid #ccc !important;
+    padding: 3pt 4pt;
+    color: black !important;
+  }
+
+  /* コードブロックの印刷用調整 */
+  .markdown-preview-view code,
+  .markdown-rendered code {
+    background: #f0f0f0 !important;
+    color: black !important;
+    border: 1pt solid #ccc;
+  }
+
+  /* リンクの印刷用調整 */
+  .markdown-preview-view a,
+  .markdown-rendered a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  /* 区切り線の調整 */
+  .markdown-preview-view hr,
+  .markdown-rendered hr {
+    border-top: 1pt solid #ccc !important;
+    margin: 12pt 0;
+  }
+
+  /* ページ区切り調整 */
+  .markdown-preview-view h2,
+  .markdown-rendered h2 {
+    page-break-after: avoid;
+  }
+
+  .markdown-preview-view ul,
+  .markdown-rendered ul {
+    page-break-inside: avoid;
+  }
+
+  /* Markdownでの明示的なページ区切り */
+  .markdown-preview-view .page-break,
+  .markdown-rendered .page-break {
+    page-break-before: always;
+    height: 0;
+    margin: 0;
+    border: none;
+  }
+
+  /* HTMLコメントでのページ区切りを検知 */
+  .markdown-preview-view [data-page-break],
+  .markdown-rendered [data-page-break] {
+    page-break-before: always;
+    height: 0;
+    margin: 0;
+    border: none;
+  }
+
+  /* 代替方法：特定のテキストでのページ区切り */
+  .markdown-preview-view p:contains("---page-break---"),
+  .markdown-rendered p:contains("---page-break---") {
+    page-break-before: always;
+    content: "";
+    height: 0;
+    margin: 0;
+    border: none;
+    display: none;
+  }
+
+  /* より確実な方法：特定のクラスを持つ要素 */
+  .markdown-preview-view .page-break-marker,
+  .markdown-rendered .page-break-marker {
+    page-break-before: always;
+    content: "";
+    height: 0;
+    margin: 0;
+    border: none;
+    display: block;
+  }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .markdown-preview-view h1,
+  .markdown-rendered h1 {
+    font-size: 1.5em;
+  }
+
+  .markdown-preview-view h2,
+  .markdown-rendered h2 {
+    font-size: 1.2em;
+    padding-left: var(--size-4-2);
+  }
+
+  .markdown-preview-view input[type="checkbox"],
+  .markdown-rendered input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+}

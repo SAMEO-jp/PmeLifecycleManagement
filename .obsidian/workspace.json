@@ -4,121 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "9225b2ab3a121368",
+        "id": "95d7b23867bf563c",
         "type": "tabs",
         "children": [
           {
-            "id": "d2be3a00ca77c627",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "src/featuer/achievement-record/docs/無題のファイル 1.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "無題のファイル 1"
-            }
-          },
-          {
-            "id": "2fd2646888c70253",
+            "id": "452384de3273b1d1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "無題のファイル 3.md",
+                "file": "src/server/01_plan.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "無題のファイル 3"
-            }
-          },
-          {
-            "id": "5c55c07c42a99d2f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "無題のファイル 4.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "無題のファイル 4"
-            }
-          },
-          {
-            "id": "fb49ca87e3eecd68",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Service 層.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Service 層"
-            }
-          },
-          {
-            "id": "641d3628fc4faa79",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Context　Providerとは.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Context　Providerとは"
-            }
-          },
-          {
-            "id": "ee5fe271939b487d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Service 層.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Service 層"
-            }
-          },
-          {
-            "id": "86ef841b2ffb0f44",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "無題のファイル 1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "無題のファイル 1"
-            }
-          },
-          {
-            "id": "dc0414b197d8e55f",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "src/core/develop/無題のファイル 1.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "無題のファイル 1"
+              "title": "01_plan"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -280,10 +183,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "5c55c07c42a99d2f",
+  "active": "7055b17a6b643a6f",
   "lastOpenFiles": [
-    "無題のファイル 3.md",
+    "docu/予定/2025年11月3日.md",
+    "docu/機能説明",
+    "docu/予定/完了タスク管理.md",
+    "src/components/app/components/AppFooter.tsx",
+    "2025年11月3日.md",
+    "無題のファイル 1.md",
+    "docu/予定",
+    "無題のファイル.md",
     "無題のファイル 4.md",
+    "LINT_RESULTS.md",
+    "無題のファイル 3.md",
     "docu/setup.md",
     "src/__tests__/README.md",
     "src/__tests__/server/projects/hook/useProject.test.tsx",
@@ -293,9 +205,6 @@
     "src/__tests__/server/projects/repositories/projectsRepository.test.ts",
     "src/__tests__/server/projects/repositories",
     "src/__tests__/server/projects",
-    "src/__tests__/server",
-    "src/__tests__/utils/test-utils.ts",
-    "src/__tests__/utils",
     "src/server/02_plan.md",
     "src/server/01_plan.md",
     "src/server/TASKS_BACKEND_PLAN.md",
@@ -311,13 +220,6 @@
     "docu/docs/17_次のステップ.md",
     "docu/docs/16_設計原則のまとめ.md",
     "docu/docs/15_データフロー図.md",
-    "docu/docs/14_ユースケース詳細仕様_UC06_プロジェクト検索.md",
-    "docu/docs/13_ユースケース詳細仕様_UC05_プロジェクト論理削除.md",
-    "docu/docs/12_ユースケース詳細仕様_UC04_プロジェクト更新.md",
-    "docu/docs/11_ユースケース詳細仕様_UC03_プロジェクト詳細取得.md",
-    "docu/docs/10_ユースケース詳細仕様_UC02_プロジェクト一覧取得.md",
-    "docu/docs/09_ユースケース詳細仕様_UC01_プロジェクト作成.md",
-    "docu/docs/08_レイヤー間依存関係の原則.md",
     "public/ChatGPT Image 2025年10月30日 10_15_31.png",
     "public/NipponSeitetsu.svg"
   ]

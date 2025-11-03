@@ -8,3 +8,4 @@ export * from './useCreateTaskEquipmentRelation';
 export * from './useUpdateTaskEquipmentRelation';
 export * from './useDeleteTaskEquipmentRelation';
 export * from './useSyncTaskEquipmentRelations';
+

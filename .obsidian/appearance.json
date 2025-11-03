@@ -1,5 +1,6 @@
 {
   "enabledCssSnippets": [
-    "usecase-page"
+    "usecase-page",
+    "todo-list"
   ]
 }
