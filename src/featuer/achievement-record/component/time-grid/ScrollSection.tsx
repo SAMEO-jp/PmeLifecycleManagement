@@ -133,8 +133,9 @@ export function ScrollSection({
       Math.min(1, mouseY / trackHeight),
     );
     const { scrollHeight, clientHeight } = container;
-    container.scrollTop =
-      scrollPercent * (scrollHeight - clientHeight);
+    const scrollTop = scrollPercent * (scrollHeight - clientHeight);
+    // eslint-disable-next-line react-hooks/immutability
+    container.scrollTop = scrollTop;
   };
 
   return (

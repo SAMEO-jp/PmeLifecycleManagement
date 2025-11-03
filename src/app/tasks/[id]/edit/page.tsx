@@ -33,6 +33,7 @@ export default function EditTaskPage() {
 
   useEffect(() => {
     if (task) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         taskName: task.taskName,
         taskTypeId: task.taskTypeId,

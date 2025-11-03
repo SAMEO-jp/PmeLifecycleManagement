@@ -48,7 +48,7 @@ export function EquipmentManagementComponent() {
       }
 
       if (data) {
-        const formattedEquipments = data.map((item: any) => ({
+        const formattedEquipments = data.map((item: { id: string; equipment_name: string; parent_id: string | null }) => ({
           id: item.id,
           equipmentName: item.equipment_name,
           parentId: item.parent_id,

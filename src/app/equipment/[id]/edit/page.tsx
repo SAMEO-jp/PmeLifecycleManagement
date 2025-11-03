@@ -37,6 +37,7 @@ export default function EditEquipmentPage() {
 
   useEffect(() => {
     if (equipmentMaster) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         equipmentName: equipmentMaster.equipmentName,
         equipmentNumber: equipmentMaster.equipmentNumber,
@@ -69,7 +70,7 @@ export default function EditEquipmentPage() {
       } else {
         toast.error(result.error || '設備の更新に失敗しました');
       }
-    } catch (error) {
+          } catch (_error) {
       toast.error('設備の更新に失敗しました');
     }
   };

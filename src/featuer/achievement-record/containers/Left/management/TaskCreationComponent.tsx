@@ -137,7 +137,7 @@ export function TaskCreationComponent() {
   }
 
   // 設備割り当てを更新
-  const updateEquipmentAssignment = (index: number, field: keyof EquipmentAssignment, value: any) => {
+  const updateEquipmentAssignment = (index: number, field: keyof EquipmentAssignment, value: string | number) => {
     setFormData(prev => ({
       ...prev,
       equipmentAssignments: prev.equipmentAssignments.map((assignment, i) =>

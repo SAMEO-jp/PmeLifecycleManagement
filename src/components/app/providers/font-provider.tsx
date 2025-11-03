@@ -36,11 +36,11 @@ const russoOne = Russo_One({
 // フォントコンテキストの型定義
 interface FontContextType {
   fonts: {
-    geistSans: any;
-    geistMono: any;
-    allertaStencil: any;
-    interBlack: any;
-    russoOne: any;
+    geistSans: ReturnType<typeof localFont>;
+    geistMono: ReturnType<typeof localFont>;
+    allertaStencil: ReturnType<typeof localFont>;
+    interBlack: ReturnType<typeof localFont>;
+    russoOne: ReturnType<typeof localFont>;
   };
   fontClasses: string;
 }

@@ -126,7 +126,7 @@ export function LeftProjectMakeComponent({ mode = 'create' }: LeftProjectMakeCom
         }
 
         if (data) {
-          let formattedProjects = data.map((item: any) => ({
+          const formattedProjects = data.map((item: { id: string; project_name: string; project_number: string; created_at: string }) => ({
             id: item.id,
             name: item.project_name,
             projectNumber: item.project_number,

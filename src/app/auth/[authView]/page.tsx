@@ -32,8 +32,8 @@ export default function AuthPage({ params }: AuthPageProps) {
     return (
         <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
             <div className="w-full max-w-md p-6">
-                <AuthView 
-                    view={view as any}
+                <AuthView
+                    view={view as "SIGN_IN" | "SIGN_UP" | "SIGN_OUT" | "FORGOT_PASSWORD" | "RESET_PASSWORD" | "MAGIC_LINK" | "EMAIL_OTP" | "TWO_FACTOR"}
                     pathname={pathname}
                 />
             </div>

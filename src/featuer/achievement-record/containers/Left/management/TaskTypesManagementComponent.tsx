@@ -51,7 +51,7 @@ export function TaskTypesManagementComponent() {
       }
 
       if (data) {
-        const formattedTaskTypes = data.map((item: any) => ({
+        const formattedTaskTypes = data.map((item: { id: string; type_name: string; description: string | null; color_code: string | null; sort_order: number | null }) => ({
           id: item.id,
           typeName: item.type_name,
           description: item.description,

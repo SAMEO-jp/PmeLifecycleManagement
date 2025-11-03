@@ -79,7 +79,7 @@ export function buildWhereConditions(
  * query = applyPagination(query, limit, offset);
  * ```
  */
-export function applyPagination<T extends { limit: (n: number) => any; offset: (n: number) => any }>(
+export function applyPagination<T extends { limit: (n: number) => unknown; offset: (n: number) => unknown }>(
   query: T,
   limit?: number,
   offset?: number

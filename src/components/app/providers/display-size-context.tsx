@@ -37,7 +37,7 @@ interface DisplaySizeProviderProps {
 }
 
 // デバウンス関数
-function debounce<T extends (...args: any[]) => any>(
+function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {

@@ -17,3 +17,5 @@ export const AppSidebar = React.memo(() => {
   )
 })
 
+AppSidebar.displayName = 'AppSidebar'
+

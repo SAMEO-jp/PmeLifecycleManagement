@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 export default function ProjectsPage() {
-  const router = useRouter();
+  const _router = useRouter();
   const { projects, loading, refetch } = useProjects();
   const { deleteProject } = useDeleteProject();
 
