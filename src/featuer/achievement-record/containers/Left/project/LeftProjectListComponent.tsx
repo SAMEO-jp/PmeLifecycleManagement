@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Info, Users, Calendar, CheckSquare } from "lucide-react"
 import { supabase } from "@/lib/supabase"
@@ -38,8 +37,8 @@ export function LeftProjectListComponent() {
     const fetchProjects = async () => {
       try {
         // 現在のユーザーを取得
-        const session = await authClient.getSession()
-        const currentUserId = session?.data?.user?.id
+        const _session = await authClient.getSession()
+        const _currentUserId = _session?.data?.user?.id
 
         // プロジェクトを取得
         const { data: projectsData, error: projectsError } = await supabase
@@ -58,7 +57,7 @@ export function LeftProjectListComponent() {
           const projectsWithDetails = await Promise.all(
             projectsData.map(async (project) => {
               // プロジェクトに関連する全てのタスクを取得（統計情報と情報表示の両方で使用）
-              const { data: allTaskRelations, error: taskError } = await supabase
+              const { data: allTaskRelations } = await supabase
                 .from('task_project_relations')
                 .select(`
                   task_id,
@@ -77,7 +76,7 @@ export function LeftProjectListComponent() {
               const regularTaskRelations = allTaskRelations?.filter(tr => tr.relation_type !== 'main') || []
 
               // プロジェクトのタスクに割り当てられているユーザー数を取得（通常タスクのみ）
-              const { data: userRelations, error: userError } = await supabase
+              const { data: userRelations, error: _userError } = await supabase
                 .from('task_user_relations')
                 .select('user_id', { count: 'exact' })
                 .in('task_id', regularTaskRelations?.map(tr => tr.task_id) || [])

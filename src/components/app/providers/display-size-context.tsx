@@ -91,20 +91,33 @@ export function DisplaySizeProvider({ children }: DisplaySizeProviderProps) {
     }
   }
 
+  // 初期化処理
   useEffect(() => {
     // SSR 回避のためのクライアントサイドチェック
     if (typeof window === 'undefined') return
 
-    // 初期サイズ設定
-    const initialSize = calculateDisplaySize(window.innerWidth, window.innerHeight)
-    setDisplaySize(initialSize)
-    setIsLoading(false)
+    // 初期サイズ設定（同期的実行を避けるためsetTimeoutを使用）
+    const initializeSize = () => {
+      const initialSize = calculateDisplaySize(window.innerWidth, window.innerHeight)
+      setDisplaySize(initialSize)
+      setIsLoading(false)
+    }
+
+    // 次のレンダリングサイクルで実行
+    const timeoutId = setTimeout(initializeSize, 0)
+
+    return () => clearTimeout(timeoutId)
+  }, [])
+
+  // リサイズイベントリスナー設定
+  useEffect(() => {
+    if (typeof window === 'undefined') return
 
     // リサイズイベントハンドラー（デバウンス適用）
     const handleResize = debounce(() => {
       const newSize = calculateDisplaySize(window.innerWidth, window.innerHeight)
       setDisplaySize(newSize)
-    }, 50) // 50ms デバウンスでより即時的な更新
+    }, 50)
 
     // イベントリスナー追加
     window.addEventListener('resize', handleResize)

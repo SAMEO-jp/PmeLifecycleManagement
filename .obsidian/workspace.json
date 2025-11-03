@@ -185,6 +185,8 @@
   },
   "active": "7055b17a6b643a6f",
   "lastOpenFiles": [
+    "eslint",
+    "pmesystem@0.1.0",
     "src/components/ui/page-header.tsx",
     "src/components/ui/loading-spinner.tsx",
     "src/components/ui/data-table.tsx",
@@ -194,8 +196,6 @@
     "src/app/users/new",
     "src/app/users/[id]",
     "src/app/users",
-    "src/app/tasks/[id]/edit/page.tsx",
-    "src/app/tasks/new/page.tsx",
     "docu/予定/2025年11月3日.md",
     "docu/予定/完了タスク管理.md",
     "2025年11月3日.md",

@@ -75,7 +75,7 @@ export function buildWhereConditions(
  * 
  * @example
  * ```typescript
- * let query: any = db.select().from(projects);
+ * let query: DrizzleSelectQuery = db.select().from(projects);
  * query = applyPagination(query, limit, offset);
  * ```
  */

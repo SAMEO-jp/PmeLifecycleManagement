@@ -76,7 +76,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Plus, Save, X } from "lucide-react"
+import { Save, X } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import { authClient } from "@/core/better-auth/auth-client"
 
@@ -98,7 +98,7 @@ export function LeftProjectMakeComponent({ mode = 'create' }: LeftProjectMakeCom
 
   const [newProjectName, setNewProjectName] = useState("")
   const [newProjectNumber, setNewProjectNumber] = useState("")
-  const [isCreating, setIsCreating] = useState(false)
+  const [, setIsCreating] = useState(false)
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
 
   // Supabaseからプロジェクトデータを取得

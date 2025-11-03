@@ -7,15 +7,10 @@ import { useState } from "react";
 
 interface DraggableEventProps {
   task: Task;
-  dayIndex: number;
   isSelected: boolean;
   onClick: () => void;
-  onResize: (taskId: string, newStartTime: string, newEndTime: string) => void;
   onDelete: (taskId: string) => void;
   onDuplicate: (task: Task) => void;
-  onChangeUrgency: (taskId: string, urgency: "high" | "medium" | "low") => void;
-  onChangeProgress: (taskId: string, progress: number) => void;
-  onChangeProject: (taskId: string, project: string) => void;
 }
 
 export function DraggableEvent({

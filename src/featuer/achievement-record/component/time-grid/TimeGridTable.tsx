@@ -1,8 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Hash, Clock, FileText } from "lucide-react";
-import { Task, Achievement, User, TIME_GRID_CONFIG, calculateTopPosition, calculateEventHeight, parseTimeToMinutes } from "../../constants";
+import { Task, Achievement, User, TIME_GRID_CONFIG, calculateTopPosition, parseTimeToMinutes } from "../../constants";
 import { DraggableEvent } from "./DraggableEvent";
 import { DroppableTimeSlot } from "./DroppableTimeSlot";
 import { ScrollSection } from "./ScrollSection";
@@ -17,7 +15,6 @@ interface TimeGridTableProps {
   onTaskDelete?: (taskId: string) => void;
   onTaskDuplicate?: (task: Task) => void;
   selectedTaskId?: string;
-  viewMode: string;
 }
 
 interface SelectionRange {

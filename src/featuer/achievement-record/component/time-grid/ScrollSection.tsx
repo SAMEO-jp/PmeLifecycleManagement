@@ -134,7 +134,6 @@ export function ScrollSection({
     );
     const { scrollHeight, clientHeight } = container;
     const scrollTop = scrollPercent * (scrollHeight - clientHeight);
-    // eslint-disable-next-line react-hooks/immutability
     container.scrollTop = scrollTop;
   };
 

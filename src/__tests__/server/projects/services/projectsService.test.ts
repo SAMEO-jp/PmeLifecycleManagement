@@ -1,6 +1,7 @@
 import { ProjectsService } from '@/server/projects/services/projectsService'
 import { projectsRepository } from '@/server/projects/repositories/index'
 import { createMockProject } from '@/__tests__/utils/test-utils'
+import { validateCreateProject, validateUpdateProject } from '@/server/projects/services/projects.validator'
 
 // Repositoryのモック
 jest.mock('@/server/projects/repositories/index', () => ({
@@ -106,7 +107,6 @@ describe('ProjectsService', () => {
       const createdProject = createMockProject(mockParams)
 
       // Validatorが成功する場合
-      const { validateCreateProject } = require('@/server/projects/services/projects.validator')
       ;(validateCreateProject as jest.Mock).mockReturnValue(null)
       ;(projectsRepository.create as jest.Mock).mockResolvedValue(createdProject)
 
@@ -124,7 +124,6 @@ describe('ProjectsService', () => {
     it('バリデーションエラーの場合、エラーレスポンスを返す', async () => {
       const mockParams = { name: '' } // 無効なデータ
 
-      const { validateCreateProject } = require('@/server/projects/services/projects.validator')
       ;(validateCreateProject as jest.Mock).mockReturnValue('Name is required')
 
       const result = await service.createProject(mockParams)
@@ -144,7 +143,6 @@ describe('ProjectsService', () => {
       const updatedProject = createMockProject({ ...existingProject, name: mockParams.name })
 
       // Validatorが成功する場合
-      const { validateUpdateProject } = require('@/server/projects/services/projects.validator')
       ;(validateUpdateProject as jest.Mock).mockReturnValue(null)
       ;(projectsRepository.update as jest.Mock).mockResolvedValue(updatedProject)
 

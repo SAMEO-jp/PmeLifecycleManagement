@@ -76,10 +76,6 @@ describe('ProjectsRepository', () => {
 
     it('status=activeでアクティブなプロジェクトのみ取得できる', async () => {
       const activeProject = createMockProject()
-      const inactiveProject = createMockProject({
-        deleted_at: new Date(),
-        id: 'inactive-id'
-      })
 
       const mockQuery = {
         from: jest.fn().mockReturnThis(),

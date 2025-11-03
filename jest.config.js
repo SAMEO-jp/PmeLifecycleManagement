@@ -1,4 +1,4 @@
-const nextJest = require('next/jest')
+import nextJest from 'next/jest'
 
 const createJestConfig = nextJest({
   // Next.jsアプリのパスを指定
@@ -35,4 +35,4 @@ const customJestConfig = {
 }
 
 // createJestConfigでNext.jsの設定をマージ
-module.exports = createJestConfig(customJestConfig)
+export default createJestConfig(customJestConfig)
