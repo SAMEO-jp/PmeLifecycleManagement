@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Separator } from '@/components/ui/separator';
 import {
   useTaskTypes,
   useCreateTaskType,
@@ -52,7 +51,7 @@ export default function ManageTaskTypesPage() {
       } else {
         toast.error(result.error || 'タスクタイプの作成に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('タスクタイプの作成に失敗しました');
     }
   };
@@ -89,7 +88,7 @@ export default function ManageTaskTypesPage() {
       } else {
         toast.error(result.error || 'タスクタイプの更新に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('タスクタイプの更新に失敗しました');
     }
   };
@@ -100,7 +99,7 @@ export default function ManageTaskTypesPage() {
         await deleteTaskType({ id: taskType.id });
         toast.success('タスクタイプを削除しました');
         refetch();
-      } catch (error) {
+      } catch {
         toast.error('タスクタイプの削除に失敗しました');
       }
     }

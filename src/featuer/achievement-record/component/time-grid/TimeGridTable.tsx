@@ -1,8 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Hash, Clock, FileText } from "lucide-react";
-import { Task, Achievement, User, TIME_GRID_CONFIG, calculateTopPosition, calculateEventHeight, parseTimeToMinutes } from "../../constants";
+import { Task, Achievement, TIME_GRID_CONFIG, calculateTopPosition, parseTimeToMinutes } from "../../constants";
 import { DraggableEvent } from "./DraggableEvent";
 import { DroppableTimeSlot } from "./DroppableTimeSlot";
 import { ScrollSection } from "./ScrollSection";
@@ -17,7 +14,6 @@ interface TimeGridTableProps {
   onTaskDelete?: (taskId: string) => void;
   onTaskDuplicate?: (task: Task) => void;
   selectedTaskId?: string;
-  viewMode: string;
 }
 
 interface SelectionRange {
@@ -51,12 +47,6 @@ const days: DayColumn[] = [
   { date: "12/23", day: "土", dayOfWeek: "土" },
 ];
 
-// ユーザーデータ
-const users: User[] = [
-  { id: "u001", employee_no: "EMP001", name: "田中太郎" },
-  { id: "u002", employee_no: "EMP002", name: "佐藤花子" },
-  { id: "u003", employee_no: "EMP003", name: "鈴木一郎" },
-];
 
 // ヘルパー関数：日付とdayIndexをマッチング（実績データ用）
 const getAchievementsForDay = (dayIndex: number, allAchievements: Achievement[]) => {
@@ -74,17 +64,6 @@ const getAchievementsForDay = (dayIndex: number, allAchievements: Achievement[])
   return filteredAchievements;
 };
 
-// 緊急度に応じた色を取得
-const getUrgencyColor = (urgency: "high" | "medium" | "low") => {
-  switch (urgency) {
-    case "high":
-      return "bg-red-100 border-red-200 text-red-900";
-    case "medium":
-      return "bg-blue-100 border-blue-200 text-blue-900";
-    case "low":
-      return "bg-green-100 border-green-200 text-green-900";
-  }
-};
 
 // イベントのレイアウト情報インターフェース
 interface EventLayout {
@@ -177,7 +156,7 @@ const calculateEventLayouts = (tasks: Task[]): EventLayout[] => {
   return layouts;
 };
 
-export function TimeGridTable({ tasks, achievements, onTaskClick, onTaskUpdate, onCreateEvent, onTaskDelete, onTaskDuplicate, selectedTaskId, viewMode }: TimeGridTableProps) {
+export function TimeGridTable({ tasks, achievements, onTaskClick, onTaskUpdate, onCreateEvent, onTaskDelete, onTaskDuplicate, selectedTaskId, _viewMode }: TimeGridTableProps) {
   // ドロップ時のハンドラー
   const handleDrop = (dayIndex: number, timeInMinutes: number, taskId: string) => {
     const [month, day] = days[dayIndex].date.split("/");

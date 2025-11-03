@@ -75,11 +75,11 @@ export function buildWhereConditions(
  * 
  * @example
  * ```typescript
- * let query: any = db.select().from(projects);
+ * let query: DrizzleSelectQuery = db.select().from(projects);
  * query = applyPagination(query, limit, offset);
  * ```
  */
-export function applyPagination<T extends { limit: (n: number) => any; offset: (n: number) => any }>(
+export function applyPagination<T extends { limit: (n: number) => unknown; offset: (n: number) => unknown }>(
   query: T,
   limit?: number,
   offset?: number

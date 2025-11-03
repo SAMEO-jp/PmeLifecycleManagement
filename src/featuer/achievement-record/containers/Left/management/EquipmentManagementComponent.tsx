@@ -4,8 +4,8 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Card } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Plus, Edit, Trash2, Save, X, ChevronRight } from "lucide-react"
@@ -48,7 +48,7 @@ export function EquipmentManagementComponent() {
       }
 
       if (data) {
-        const formattedEquipments = data.map((item: any) => ({
+        const formattedEquipments = data.map((item: { id: string; equipment_name: string; parent_id: string | null }) => ({
           id: item.id,
           equipmentName: item.equipment_name,
           parentId: item.parent_id,

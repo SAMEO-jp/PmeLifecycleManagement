@@ -31,6 +31,7 @@ export default function EditProjectPage() {
 
   useEffect(() => {
     if (project) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         name: project.name,
         status: project.status,
@@ -57,7 +58,7 @@ export default function EditProjectPage() {
       } else {
         toast.error(result.error || 'プロジェクトの更新に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('プロジェクトの更新に失敗しました');
     }
   };

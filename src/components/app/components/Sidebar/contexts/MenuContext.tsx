@@ -6,7 +6,7 @@ import { menuItems as rawMenuItems } from "./menuItems"
 export interface MenuItem {
   title: string
   url: string
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
 }
 
 export type ActiveView = 'default' | 'project-join' | 'project-create' | 'project-task-create' | 'project-list' | 'tasks' | 'past-records' | 'task-types-management' | 'equipment-management' | 'task-create'

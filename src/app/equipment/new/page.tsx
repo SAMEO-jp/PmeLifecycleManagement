@@ -49,7 +49,7 @@ export default function NewEquipmentPage() {
       } else {
         toast.error(result.error || '設備の登録に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('設備の登録に失敗しました');
     }
   };

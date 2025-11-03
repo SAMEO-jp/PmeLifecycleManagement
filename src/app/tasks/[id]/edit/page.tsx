@@ -33,6 +33,7 @@ export default function EditTaskPage() {
 
   useEffect(() => {
     if (task) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData({
         taskName: task.taskName,
         taskTypeId: task.taskTypeId,
@@ -68,7 +69,7 @@ export default function EditTaskPage() {
       } else {
         toast.error(result.error || 'タスクの更新に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('タスクの更新に失敗しました');
     }
   };

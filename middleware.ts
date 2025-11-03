@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
 		}
 
 		return response;
-	} catch (error) {
+	} catch {
 		// セッション検証に失敗した場合はそのまま処理を続ける
 		return NextResponse.next();
 	}

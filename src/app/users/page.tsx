@@ -20,7 +20,7 @@ export default function UsersPage() {
         await deleteUser({ id: user.id });
         toast.success('ユーザーを削除しました');
         refetch();
-      } catch (error) {
+      } catch {
         toast.error('ユーザーの削除に失敗しました');
       }
     }

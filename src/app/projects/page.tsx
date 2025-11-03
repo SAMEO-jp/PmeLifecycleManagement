@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 export default function ProjectsPage() {
-  const router = useRouter();
+  const _router = useRouter();
   const { projects, loading, refetch } = useProjects();
   const { deleteProject } = useDeleteProject();
 
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
         await deleteProject({ id: project.id });
         toast.success('プロジェクトを削除しました');
         refetch();
-      } catch (error) {
+      } catch {
         toast.error('プロジェクトの削除に失敗しました');
       }
     }

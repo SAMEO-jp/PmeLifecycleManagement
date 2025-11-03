@@ -3,7 +3,7 @@ import React from "react"
 import { authClient } from "@/core/better-auth/auth-client"
 import NipponSteelUserButton from "./nipponSteelUserButton"
 
-export const SidebarFooter = React.memo(() => {
+const SidebarFooter = React.memo(() => {
   // better-auth の useSession を直接使用
   const { data: session, isPending } = authClient.useSession()
 
@@ -23,3 +23,7 @@ export const SidebarFooter = React.memo(() => {
     </div>
   )
 })
+
+SidebarFooter.displayName = 'SidebarFooter'
+
+export { SidebarFooter }

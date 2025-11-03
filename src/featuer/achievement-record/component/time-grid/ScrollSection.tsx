@@ -133,8 +133,13 @@ export function ScrollSection({
       Math.min(1, mouseY / trackHeight),
     );
     const { scrollHeight, clientHeight } = container;
-    container.scrollTop =
-      scrollPercent * (scrollHeight - clientHeight);
+    const scrollTop = scrollPercent * (scrollHeight - clientHeight);
+    // Use requestAnimationFrame to avoid direct mutation in render
+    requestAnimationFrame(() => {
+      if (container) {
+        container.scrollTop = scrollTop;
+      }
+    });
   };
 
   return (

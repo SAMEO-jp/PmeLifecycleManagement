@@ -1,11 +1,10 @@
 "use client"
 
 import React, { useState } from "react"
-import { Bug, X, Monitor, User, Settings, Database, Zap } from "lucide-react"
+import { Bug, Monitor, User, Settings, Database, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useDisplaySize } from "@/components/app/providers/display-size-context"
 import { useFonts } from "@/components/app/providers/font-provider"
@@ -202,7 +201,7 @@ export function DevagLayout({ children }: DevagLayoutProps) {
                       <div className="text-sm font-medium">メモリ使用量</div>
                       <div className="text-sm text-muted-foreground">
                         {typeof window !== 'undefined' && 'memory' in performance
-                          ? `${Math.round((performance as any).memory.usedJSHeapSize / 1024 / 1024)}MB`
+                          ? `${Math.round((performance as { memory: { usedJSHeapSize: number } }).memory.usedJSHeapSize / 1024 / 1024)}MB`
                           : 'N/A'
                         }
                       </div>
@@ -307,7 +306,7 @@ export function DevagLayout({ children }: DevagLayoutProps) {
                         <div>useRightSidebarWidth() → number</div>
                         <div>useMainSidebarWidth() → number</div>
                         <div>useHeaderHeight() → number</div>
-                        <div>useBreakpoint() → 'mobile'|'tablet'|'desktop'</div>
+                        <div>useBreakpoint() → &apos;mobile&apos;|&apos;tablet&apos;|&apos;desktop&apos;</div>
                         <div>useIsMobile() → boolean</div>
                         <div>useIsTablet() → boolean</div>
                         <div>useIsDesktop() → boolean</div>

@@ -53,7 +53,7 @@ export default function NewTaskPage() {
       } else {
         toast.error(result.error || 'タスクの作成に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('タスクの作成に失敗しました');
     }
   };

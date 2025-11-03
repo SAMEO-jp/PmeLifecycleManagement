@@ -37,7 +37,7 @@ export default function NewProjectPage() {
       } else {
         toast.error(result.error || 'プロジェクトの作成に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('プロジェクトの作成に失敗しました');
     }
   };

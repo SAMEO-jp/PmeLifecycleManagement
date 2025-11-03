@@ -23,7 +23,7 @@ export default function TaskTypesPage() {
         await deleteTaskType({ id: taskType.id });
         toast.success('タスクタイプを削除しました');
         refetch();
-      } catch (error) {
+      } catch {
         toast.error('タスクタイプの削除に失敗しました');
       }
     }

@@ -4,9 +4,8 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
 import { Save, X, Plus, Minus } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 
@@ -137,7 +136,7 @@ export function TaskCreationComponent() {
   }
 
   // 設備割り当てを更新
-  const updateEquipmentAssignment = (index: number, field: keyof EquipmentAssignment, value: any) => {
+  const updateEquipmentAssignment = (index: number, field: keyof EquipmentAssignment, value: string | number) => {
     setFormData(prev => ({
       ...prev,
       equipmentAssignments: prev.equipmentAssignments.map((assignment, i) =>

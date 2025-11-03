@@ -20,7 +20,7 @@ export default function EquipmentPage() {
         await deleteEquipmentMaster({ id: equipment.id });
         toast.success('設備を削除しました');
         refetch();
-      } catch (error) {
+      } catch {
         toast.error('設備の削除に失敗しました');
       }
     }
