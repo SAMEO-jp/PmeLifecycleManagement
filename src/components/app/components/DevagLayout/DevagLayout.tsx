@@ -1,11 +1,10 @@
 "use client"
 
 import React, { useState } from "react"
-import { Bug, X, Monitor, User, Settings, Database, Zap } from "lucide-react"
+import { Bug, Monitor, User, Settings, Database, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useDisplaySize } from "@/components/app/providers/display-size-context"
 import { useFonts } from "@/components/app/providers/font-provider"

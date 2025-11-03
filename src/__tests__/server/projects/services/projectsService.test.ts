@@ -160,7 +160,7 @@ describe('ProjectsService', () => {
     it('更新対象のプロジェクトが存在しない場合、エラーを返す', async () => {
       const mockParams = { id: 'non-existent-id', name: 'Updated Project' }
 
-      const { validateUpdateProject } = require('@/server/projects/services/projects.validator')
+      const { validateUpdateProject } = await import('@/server/projects/services/projects.validator')
       ;(validateUpdateProject as jest.Mock).mockReturnValue(null)
       ;(projectsRepository.update as jest.Mock).mockResolvedValue(null)
 

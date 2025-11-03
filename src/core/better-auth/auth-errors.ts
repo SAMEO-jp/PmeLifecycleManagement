@@ -2,7 +2,6 @@
  * Better Authのエラーハンドリングユーティリティ
  */
 
-import { authClient } from "./auth-client";
 
 /**
  * エラーメッセージの日本語翻訳マップ

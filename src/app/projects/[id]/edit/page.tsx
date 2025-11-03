@@ -58,7 +58,7 @@ export default function EditProjectPage() {
       } else {
         toast.error(result.error || 'プロジェクトの更新に失敗しました');
       }
-          } catch (_error) {
+    } catch {
       toast.error('プロジェクトの更新に失敗しました');
     }
   };

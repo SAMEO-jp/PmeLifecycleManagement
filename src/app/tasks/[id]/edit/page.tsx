@@ -69,7 +69,7 @@ export default function EditTaskPage() {
       } else {
         toast.error(result.error || 'タスクの更新に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('タスクの更新に失敗しました');
     }
   };

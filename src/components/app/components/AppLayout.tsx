@@ -14,7 +14,6 @@ interface AppLayoutProps {
 
 export function AppLayout({ children }: AppLayoutProps) {
   const mainSidebarWidth = useMainSidebarWidth()
-  const headerHeight = useHeaderHeight()
 
   const mainContent = (
     <MenuProvider>

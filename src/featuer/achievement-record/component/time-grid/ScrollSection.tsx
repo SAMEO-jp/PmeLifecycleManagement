@@ -134,7 +134,12 @@ export function ScrollSection({
     );
     const { scrollHeight, clientHeight } = container;
     const scrollTop = scrollPercent * (scrollHeight - clientHeight);
-    container.scrollTop = scrollTop;
+    // Use requestAnimationFrame to avoid direct mutation in render
+    requestAnimationFrame(() => {
+      if (container) {
+        container.scrollTop = scrollTop;
+      }
+    });
   };
 
   return (

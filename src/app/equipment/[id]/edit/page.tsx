@@ -70,7 +70,7 @@ export default function EditEquipmentPage() {
       } else {
         toast.error(result.error || '設備の更新に失敗しました');
       }
-          } catch (_error) {
+          } catch {
       toast.error('設備の更新に失敗しました');
     }
   };

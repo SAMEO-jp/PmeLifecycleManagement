@@ -1,8 +1,7 @@
 import { useDrag } from "react-dnd";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Task, calculateEventHeight } from "../../constants";
-import { MoreHorizontal, Trash2, Copy } from "lucide-react";
+import { Trash2, Copy } from "lucide-react";
 import { useState } from "react";
 
 interface DraggableEventProps {
@@ -15,15 +14,15 @@ interface DraggableEventProps {
 
 export function DraggableEvent({
   task,
-  dayIndex,
+  _dayIndex,
   isSelected,
   onClick,
-  onResize,
+  _onResize,
   onDelete,
   onDuplicate,
-  onChangeUrgency,
-  onChangeProgress,
-  onChangeProject,
+  _onChangeUrgency,
+  _onChangeProgress,
+  _onChangeProject,
 }: DraggableEventProps) {
   const [showActions, setShowActions] = useState(false);
 

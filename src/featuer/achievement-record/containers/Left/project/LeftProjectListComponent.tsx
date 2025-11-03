@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Card } from "@/components/ui/card"
 import { Info, Users, Calendar, CheckSquare } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import { authClient } from "@/core/better-auth/auth-client"
@@ -20,6 +21,7 @@ interface Task {
   id: string
   task_name: string
   task_type_name?: string
+  relation_type: string
   created_at: string
 }
 
@@ -93,9 +95,9 @@ export function LeftProjectListComponent() {
                 taskCount,
                 memberCount,
                 tasks: allTaskRelations?.map(tr => ({
-                  id: tr.tasks?.id || '',
-                  task_name: tr.tasks?.task_name || '',
-                  task_type_name: tr.tasks?.task_types?.type_name || '',
+                  id: tr.tasks?.[0]?.id || '',
+                  task_name: tr.tasks?.[0]?.task_name || '',
+                  task_type_name: tr.tasks?.[0]?.task_types?.[0]?.type_name || '',
                   relation_type: tr.relation_type,
                   created_at: project.created_at
                 })) || []

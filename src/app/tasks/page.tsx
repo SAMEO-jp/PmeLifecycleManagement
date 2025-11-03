@@ -23,7 +23,7 @@ export default function TasksPage() {
         await deleteTask({ id: task.id });
         toast.success('タスクを削除しました');
         refetch();
-      } catch (error) {
+      } catch {
         toast.error('タスクの削除に失敗しました');
       }
     }

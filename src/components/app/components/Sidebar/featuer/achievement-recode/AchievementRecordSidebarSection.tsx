@@ -5,13 +5,11 @@ import {
   SidebarContent as ShadcnSidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
 } from "@/components/ui/sidebar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Calendar, Menu, Zap, UserPlus, PlusCircle, CheckSquare, History, ClipboardList, List, Settings, Wrench, FileText } from "lucide-react"
 import { useMenuContext, ActiveView } from "@/components/app/components/Sidebar"
-import { LeftSectionTestControls } from "@/featuer/achievement-record/containers/Left/test-controls"
 
 type MenuItem = 'project-join' | 'project-create' | 'project-task-create' | 'project-list' | 'tasks' | 'past-records' | 'task-types-management' | 'equipment-management' | 'task-create'
 

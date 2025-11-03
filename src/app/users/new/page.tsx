@@ -56,7 +56,7 @@ export default function NewUserPage() {
       } else {
         toast.error(result.error || 'ユーザーの作成に失敗しました');
       }
-    } catch (error) {
+    } catch {
       toast.error('ユーザーの作成に失敗しました');
     }
   };
