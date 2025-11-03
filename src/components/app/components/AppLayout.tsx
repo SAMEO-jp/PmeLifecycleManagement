@@ -5,7 +5,7 @@ import { AppHeader } from "@/components/app/components/AppHeader";
 import { AppSidebar } from "@/components/app/components/AppSidebar";
 import { MenuProvider } from "@/components/app/components/Sidebar";
 import { DevagLayout } from "@/components/app/components/DevagLayout/DevagLayout";
-import { useMainSidebarWidth, useHeaderHeight } from "@/components/app/providers/display-size-context";
+import { useMainSidebarWidth } from "@/components/app/providers/display-size-context";
 import { LeftSectionProvider } from "@/featuer/achievement-record/containers/Left/context";
 
 interface AppLayoutProps {

@@ -1,5 +1,5 @@
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { Task, Achievement, User, TIME_GRID_CONFIG, calculateTopPosition, parseTimeToMinutes } from "../../constants";
+import { Task, Achievement, TIME_GRID_CONFIG, calculateTopPosition, parseTimeToMinutes } from "../../constants";
 import { DraggableEvent } from "./DraggableEvent";
 import { DroppableTimeSlot } from "./DroppableTimeSlot";
 import { ScrollSection } from "./ScrollSection";
